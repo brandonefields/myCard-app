@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "biz_caj_card.png",
       "idiom" : "universal"
     }
   ],

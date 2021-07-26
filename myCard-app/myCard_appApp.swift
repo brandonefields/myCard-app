@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct myCard_appApp: App {
+struct NavigatingInSwiftUIApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MotherView().environmentObject(viewRouter)
         }
     }
 }

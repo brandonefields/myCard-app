@@ -5,8 +5,8 @@ An app for keeping those connections.
 ## Summary
 
 
-<img src="" alt="Gif demo of project">
-<iframe src="https://giphy.com/embed/YwPpkpUCzlfOxs4puN" width="252" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/YwPpkpUCzlfOxs4puN">via GIPHY</a></p>
+<img src="https://giphy.com/embed/YwPpkpUCzlfOxs4puN" alt="Gif demo of project">
+<iframe src= width="252" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/YwPpkpUCzlfOxs4puN">via GIPHY</a></p>
 
 ## Technologies
 

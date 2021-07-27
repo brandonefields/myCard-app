@@ -14,7 +14,8 @@ struct NavigatingInSwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MotherView().environmentObject(viewRouter)
+            MotherView()
+                .environmentObject(viewRouter)
         }
     }
 }

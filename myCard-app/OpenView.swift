@@ -8,12 +8,18 @@
 
 import SwiftUI
 
+struct User: Identifiable {
+    let id: String
+}
+
 struct OpenView: View {
     
     @EnvironmentObject var viewRouter: ViewRouter
     
     @State private var password: String = ""
     @State private var username: String = ""
+    
+    @State private var selectedUser: User?
     
     var body: some View {
         VStack {
@@ -32,21 +38,23 @@ struct OpenView: View {
                 
                 Button(action: {
                     withAnimation {
-                        viewRouter.currentPage = .page2
-                    }
-                }) {
-                    SignUInButton()
-                }
-                
-                Button(action: {
-                    withAnimation {
-                        viewRouter.currentPage = .page2
+                        viewRouter.currentPage = .page5
                     }
                 }) {
                     SignUpButton()
                 }
+               
+                Button(action: {
+                    withAnimation {
+                        viewRouter.currentPage = .page4
+                    }
+                }) {
+                    SignInButton()
+                }
             }
          
+        
+       
         }
         .background(Image("b_card")
                         .resizable()
@@ -85,7 +93,7 @@ struct SignUpButton : View {
     }
 }
 
-struct SignUInButton : View {
+struct SignInButton : View {
     var body: some View {
         Text("Sign In")
             .foregroundColor(.white)
@@ -96,10 +104,14 @@ struct SignUInButton : View {
     }
 }
 
+
+
 struct OpenView_Previews: PreviewProvider {
     static var previews: some View {
         OpenView().environmentObject(ViewRouter())
     }
 }
+
+
 
 

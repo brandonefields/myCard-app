@@ -16,19 +16,14 @@ struct MotherView: View {
         switch viewRouter.currentPage {
         case .page1:
             OpenView()
-                .transition(.scale)
         case .page2:
             HomeView()
-                .transition(.scale)
         case .page3:
             PreLaunch()
-                .transition(.scale)
         case .page4:
-            HomeView()
-                .transition(.scale)
+            NewHomeView()
         case .page5:
-            HomeView()
-                .transition(.scale)
+            SignUpView()
         }
     }
 }

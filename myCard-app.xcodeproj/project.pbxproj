@@ -17,6 +17,11 @@
 		E68FD85E26AE504F00529EFB /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD85D26AE504F00529EFB /* ViewRouter.swift */; };
 		E68FD86026AE509400529EFB /* PreLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD85F26AE509400529EFB /* PreLaunchView.swift */; };
 		E68FD86226AE50CD00529EFB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86126AE50CD00529EFB /* Helper.swift */; };
+		E68FD86426B0650E00529EFB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86326B0650E00529EFB /* SignUpView.swift */; };
+		E68FD86626B078DC00529EFB /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86526B078DC00529EFB /* NewHomeView.swift */; };
+		E68FD86826B07CE400529EFB /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86726B07CE400529EFB /* CardsView.swift */; };
+		E68FD86A26B0937C00529EFB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86926B0937C00529EFB /* ProfileView.swift */; };
+		E68FD86C26B09A1700529EFB /* InsideAppHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		E68FD85D26AE504F00529EFB /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E68FD85F26AE509400529EFB /* PreLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLaunchView.swift; sourceTree = "<group>"; };
 		E68FD86126AE50CD00529EFB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E68FD86326B0650E00529EFB /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E68FD86526B078DC00529EFB /* NewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeView.swift; sourceTree = "<group>"; };
+		E68FD86726B07CE400529EFB /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		E68FD86926B0937C00529EFB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideAppHomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +74,21 @@
 		E68FD84726AE4D3F00529EFB /* myCard-app */ = {
 			isa = PBXGroup;
 			children = (
+				E68FD85726AE4FAA00529EFB /* MotherVIew.swift */,
+				E68FD85B26AE501900529EFB /* OpenView.swift */,
+				E68FD85926AE4FEB00529EFB /* HomeView.swift */,
 				E68FD84826AE4D3F00529EFB /* myCard_appApp.swift */,
 				E68FD84C26AE4D4000529EFB /* Assets.xcassets */,
 				E68FD84A26AE4D3F00529EFB /* ContentView.swift */,
-				E68FD85B26AE501900529EFB /* OpenView.swift */,
 				E68FD85D26AE504F00529EFB /* ViewRouter.swift */,
 				E68FD85126AE4D4000529EFB /* Info.plist */,
-				E68FD85926AE4FEB00529EFB /* HomeView.swift */,
-				E68FD85726AE4FAA00529EFB /* MotherVIew.swift */,
 				E68FD86126AE50CD00529EFB /* Helper.swift */,
 				E68FD85F26AE509400529EFB /* PreLaunchView.swift */,
+				E68FD86526B078DC00529EFB /* NewHomeView.swift */,
+				E68FD86726B07CE400529EFB /* CardsView.swift */,
+				E68FD86926B0937C00529EFB /* ProfileView.swift */,
+				E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */,
+				E68FD86326B0650E00529EFB /* SignUpView.swift */,
 				E68FD84E26AE4D4000529EFB /* Preview Content */,
 			);
 			path = "myCard-app";
@@ -156,13 +171,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E68FD86826B07CE400529EFB /* CardsView.swift in Sources */,
 				E68FD86026AE509400529EFB /* PreLaunchView.swift in Sources */,
 				E68FD85826AE4FAA00529EFB /* MotherVIew.swift in Sources */,
 				E68FD85A26AE4FEB00529EFB /* HomeView.swift in Sources */,
+				E68FD86A26B0937C00529EFB /* ProfileView.swift in Sources */,
 				E68FD85C26AE501900529EFB /* OpenView.swift in Sources */,
+				E68FD86626B078DC00529EFB /* NewHomeView.swift in Sources */,
 				E68FD85E26AE504F00529EFB /* ViewRouter.swift in Sources */,
+				E68FD86C26B09A1700529EFB /* InsideAppHomeView.swift in Sources */,
 				E68FD84B26AE4D3F00529EFB /* ContentView.swift in Sources */,
 				E68FD84926AE4D3F00529EFB /* myCard_appApp.swift in Sources */,
+				E68FD86426B0650E00529EFB /* SignUpView.swift in Sources */,
 				E68FD86226AE50CD00529EFB /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

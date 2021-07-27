@@ -4,7 +4,7 @@ An app for keeping those connections.
 
 ## Summary
 
- <img src='https://media.giphy.com/media/EfbZw61amWDRpD0nVB/giphy.gif' height='450'>
+ <img src='https://media.giphy.com/media/YwPpkpUCzlfOxs4puN/giphy.gif' height='450'>
 
 ## Technologies
 

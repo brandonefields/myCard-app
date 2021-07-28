@@ -154,7 +154,7 @@ struct BcardsWithAlertsView: View {
                             .padding(4)
                             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                             .alert(isPresented: $showingAlert){
-                                Alert(title: Text("\(selectedCard)"),
+                                Alert(title: Text("\(selectedCard)!"),
                                       message: Text("\(typeOfSelectedCard)"),
                                       dismissButton: .default(Text("Close")))
                             }
@@ -173,9 +173,9 @@ struct BcardsWithAlertsView: View {
     func casualCardHightlight(){
         if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == ""{
             backgroundColor1 = Color.red
-            selectedCard = "You Shared Casual Card"
+            selectedCard = "You Shared a Casual Card"
             typeOfSelectedCard = "Casual"
-        } else if backgroundColor1 == Color.red && selectedCard == "You Shared Casual Card" && typeOfSelectedCard == "Casual"{
+        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && typeOfSelectedCard == "Casual"{
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
             typeOfSelectedCard = ""
@@ -187,9 +187,9 @@ struct BcardsWithAlertsView: View {
     func bizCajHightlight(){
         if backgroundColor2 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == "" {
             backgroundColor2 = Color.red
-            selectedCard = "You Shared Biz-Caj Card"
+            selectedCard = "You Shared a Biz-Caj Card"
             typeOfSelectedCard = "Biz-Caj"
-        } else if backgroundColor2 == Color.red && selectedCard == "You Shared Biz-Caj Card" && typeOfSelectedCard == "Biz-Caj"{
+        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && typeOfSelectedCard == "Biz-Caj"{
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
             typeOfSelectedCard = ""
@@ -199,9 +199,9 @@ struct BcardsWithAlertsView: View {
     func professionalCardHightlight(){
         if backgroundColor3 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == "" {
             backgroundColor3 = Color.red
-            selectedCard = "You Shared Professional Card"
+            selectedCard = "You Shared a Professional Card"
             typeOfSelectedCard = "Professional"
-        } else if backgroundColor3 == Color.red && selectedCard == "You Shared Professional Card" && typeOfSelectedCard == "Professional" {
+        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && typeOfSelectedCard == "Professional" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
             typeOfSelectedCard = ""

@@ -26,7 +26,7 @@ struct NewHomeView: View {
                         Text("Profile")
                     }
                 }.tag(2)
-            CardsView()
+            BcardsWithAlertsView()
                 .tabItem {
                     VStack {
                         Image(systemName: "rectangle.dashed")

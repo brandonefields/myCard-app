@@ -8,48 +8,66 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    private let colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+    
     var body: some View {
         
-        VStack {
-            Spacer()
-            Image("i_creek_selfie")
-                .resizable()
-                .frame(width: 300, height: 300)
-                .clipShape( Circle())
-                .shadow(radius: 10)
-                .overlay(Circle().stroke(Color("Shadow"), lineWidth: 5))
-                .padding(50)
-            Text(" Brandon E Fields ")
-                .font(.system(size: 30))
-                .underline()
-                .foregroundColor(Color("Background"))
-                .padding(5)
-            Text("Sept-19-1986")
-                .foregroundColor(Color("Background"))
-                .padding(1)
-            Text("GitHub")
-                .foregroundColor(Color("Background"))
-                .padding(1)
-            Text("LinkedIn")
-                .foregroundColor(Color("Background"))
-                .padding(1)
-            Text("Portfolio")
-                .foregroundColor(Color("Background"))
-                .padding(1)
-            Text("Instagram")
-                .foregroundColor(Color("Background"))
-                .padding(1)
-           
-                            
-            Spacer()
-            Spacer()
-        }
-        .background(
-            LinearGradient(gradient: Gradient(colors: [Color("Background"), Color("DarkBackground")]), startPoint: .top, endPoint: .bottom))
-        .edgesIgnoringSafeArea( .all)
         
+        ZStack {
             
-          
+            RadialGradient(gradient: colorsForBackground,
+                           center: UnitPoint.center,
+                           startRadius: 0,
+                           endRadius: 500).ignoresSafeArea(.all)
+           
+
+            VStack {
+            
+                Image("i_creek_selfie")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .clipShape( Circle())
+                    .shadow(radius: 10)
+                    .overlay(Circle().stroke(Color("Shadow"), lineWidth: 5))
+                    .padding(10)
+                Spacer()
+                Spacer()
+
+            }
+           
+            VStack {
+            
+                VStack {
+                    Spacer()
+                  Spacer()
+                    Text(" Brandon E Fields ")
+                        .font(.system(size: 30))
+                        .underline()
+                        .foregroundColor(Color("Shadow"))
+                        .padding(20)
+                    Text("Sept-19-1986")
+                        .foregroundColor(Color("Shadow"))
+                        .padding(1)
+                    Text("GitHub")
+                        .foregroundColor(Color("Shadow"))
+                        .padding(1)
+                    Text("LinkedIn")
+                        .foregroundColor(Color("Shadow"))
+                        .padding(1)
+                    Text("Portfolio")
+                        .foregroundColor(Color("Shadow"))
+                        .padding(1)
+                    Text("Instagram")
+                        .foregroundColor(Color("Shadow"))
+                        .padding(1)
+                    Spacer()
+                }
+                
+            }
+            
+        }
+
     }
    
 }

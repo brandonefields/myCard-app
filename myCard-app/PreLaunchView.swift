@@ -23,9 +23,9 @@ struct PreLaunch: View {
                 ZStack {
                     Color("Background")
                         .edgesIgnoringSafeArea( .all )
-                    Image("miiCard_logo 2")
+                    Image("myCardLogo")
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 10, height: 10)
                         .rotation3DEffect(.degrees(angle), axis: (x: 0, y: 1, z: 0))
                         .scaleEffect(scale)
                         .opacity(opacity)
@@ -33,13 +33,13 @@ struct PreLaunch: View {
             }
         }
         .onAppear {
-            withAnimation(.linear(duration: 2)) {
+            withAnimation(.linear(duration: 5)) {
                 self.angle = 0
-                self.scale = 3
+                self.scale = 50
                 self.opacity = 0
             }
             
-            withAnimation(Animation.linear.delay(1.75)){
+            withAnimation(Animation.linear.delay(5)){
                 self.showMainView = true
             }
         }

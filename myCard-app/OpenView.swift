@@ -41,7 +41,7 @@ struct OpenView: View {
                         viewRouter.currentPage = .page5
                     }
                 }) {
-                    SignUpButton()
+                    SignUpButton().padding(10)
                 }
                
                 Button(action: {
@@ -49,7 +49,7 @@ struct OpenView: View {
                         viewRouter.currentPage = .page4
                     }
                 }) {
-                    SignInButton()
+                    SignInButton().padding(10)
                 }
             }
          

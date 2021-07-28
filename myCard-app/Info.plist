@@ -30,7 +30,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>miiCard_logo 2</string>
+		<string>myCardLogo</string>
 		<key>UIColorName</key>
 		<string>Background</string>
 	</dict>

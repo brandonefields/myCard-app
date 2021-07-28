@@ -36,7 +36,7 @@ struct InsideAppHomeView: View {
                     .shadow(radius: 10)
                     .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                     .overlay(Circle().stroke(Color("Shadow"), lineWidth: 5))
-                    .padding(50)
+                    .padding(30)
                 Spacer()
             }
             VStack {
@@ -46,9 +46,9 @@ struct InsideAppHomeView: View {
                 
                 Text("Preferences")
                     .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
+                    .frame(width: 200, height: 50)
                     .background(Color("PrimaryColor"))   .cornerRadius(15)
-                    .padding(.top,20)
+                    .padding(.top,10)
                     .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                         .onTapGesture { self.showingActionSheet1 = true }
                             .actionSheet(isPresented: $showingActionSheet1){

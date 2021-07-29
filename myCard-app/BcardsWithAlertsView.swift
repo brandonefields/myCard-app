@@ -34,6 +34,10 @@ struct BcardsWithAlertsView: View {
     
     @State private var correctCard = Int()
     
+    @State var output: String = ""
+    @State var input: String = ""
+    @State var typing = false
+    
     
     
     @State  private var colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
@@ -123,7 +127,10 @@ struct BcardsWithAlertsView: View {
                     }
                     VStack {
                         
-                        TextField("Share Card with (@contact_name)", text: $username)
+                        TextField("Share Card with (@contact_name)", text: $username,
+                                  onEditingChanged: { self.typing = $0}, onCommit: {
+                                    self.output = self.input
+                                  })
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .frame(width: 320, height: 40, alignment: .center)
                                 .padding(10)
@@ -170,6 +177,9 @@ struct BcardsWithAlertsView: View {
             }
         }
     }
+    
+    
+    
     
     func casualCardHightlight(){
         if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {

@@ -15,6 +15,7 @@ struct InsideAppHomeView: View {
     @State private var backgroundColor = Color.white
     @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     @State private var profileImage = "myCardLogo"
+    @State private var colorMode = "Dark Mode"
     
     var body: some View {
         ZStack {
@@ -56,8 +57,8 @@ struct InsideAppHomeView: View {
                                 ActionSheet(title: Text("Preferences"), message:
                                             Text("Select a Option"), buttons: [
                                                 .default(Text("Chage Profile Image")) { handleActionSheetSelectionProfileImage() },
-                                                .default(Text ("Dark Mode")) { handleActionSheetSelectionBackground()},
-                                                .default(Text("Add Contacts")) { handleActionSheetSelectionContacts() },
+                                                .default(Text ("\(colorMode)")) { handleActionSheetSelectionBackground()},
+                                                .default(Text("More")) { handleActionSheetSelectionContacts() },
                                                 .cancel()
                                             ])
                             }
@@ -77,10 +78,14 @@ struct InsideAppHomeView: View {
     
     func handleActionSheetSelectionBackground(){
         
-        if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")]) {
+        if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+        && colorMode == "Dark Mode" {
             colorsForBackground8 = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
-        } else if colorsForBackground8  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) {
+            colorMode = "Light Mode"
+        } else if colorsForBackground8  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
+        && colorMode == "Light Mode" {
             colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+            colorMode = "Dark Mode"
         }
     }
     

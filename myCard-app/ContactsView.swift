@@ -10,22 +10,42 @@ import SwiftUI
 
 struct ContactsView: View {
     
+    @State private var newContact = ""
+    @State private var rootword = ""
+    @State private var contactsList = [String]()
+    
     @EnvironmentObject var viewRouter: ViewRouter
     
+    @State private var allContacts = "@Greg"
+    
     var body: some View {
-        
-        VStack {
-            Text("this will be where the contacts go")
-        
-            Button(action: {
-                withAnimation {
-                    viewRouter.currentPage = .page5
+        NavigationView {
+            VStack {
+                TextField("Enter a Contact", text:$newContact, onCommit: addNewContact)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .keyboardType(.default)
+                
+                
+                List(contactsList, id: \.self){
+                    Image(systemName: "person.circle")
+                    Text($0)
                 }
-            }) {
-                GoHomeButton2().padding(10)
             }
-        }
             
+        }
+    }
+    func addNewContact() {
+        let contact = newContact.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard contact.count > 0 else {
+            return
+        }
+        
+        // extra validation goes here
+        
+        contactsList.insert(contact, at: 0)
+        newContact = ""
     }
 }
 

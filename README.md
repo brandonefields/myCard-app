@@ -8,7 +8,7 @@ An app for keeping those connections.
 
 ## Features
 
- <img src='https://media.giphy.com/media/whgFsVZr3kIItKHXZO/giphy.gif' height='450'>
+ <img src='https://media.giphy.com/media/Hq8MbiiUXjlG1ZXvQb/giphy.gif' height='450'>
 
 - Easily share specified contact information on the go. 
 - Make connections how you want and with who you want. 

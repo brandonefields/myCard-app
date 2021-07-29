@@ -14,6 +14,7 @@ struct InsideAppHomeView: View {
     @State private var showingActionSheet1 = false
     @State private var backgroundColor = Color.white
     @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+    @State private var profileImage = "myCardLogo"
     
     var body: some View {
         ZStack {
@@ -29,7 +30,7 @@ struct InsideAppHomeView: View {
            
             VStack {
         
-                Image("miiCard_logo 2")
+                Image("\(profileImage)")
                     .resizable()
                     .frame(width: 300, height: 300)
                     .clipShape( Circle())
@@ -54,9 +55,9 @@ struct InsideAppHomeView: View {
                             .actionSheet(isPresented: $showingActionSheet1){
                                 ActionSheet(title: Text("Preferences"), message:
                                             Text("Select a Option"), buttons: [
-                                                .default(Text("Chage Profile Image")) { handleActionSheetSelection() },
-                                                .default(Text ("Dark Mode")) { handleActionSheetSelection()},
-                                                .default(Text("Add Contacts")) { handleActionSheetSelection() },
+                                                .default(Text("Chage Profile Image")) { handleActionSheetSelectionProfileImage() },
+                                                .default(Text ("Dark Mode")) { handleActionSheetSelectionBackground()},
+                                                .default(Text("Add Contacts")) { handleActionSheetSelectionContacts() },
                                                 .cancel()
                                             ])
                             }
@@ -65,7 +66,16 @@ struct InsideAppHomeView: View {
         }
     }
     
- func handleActionSheetSelection(){
+    func handleActionSheetSelectionProfileImage(){
+           
+           if profileImage == "myCardLogo" {
+               profileImage = "laugh"
+           } else if profileImage == "laugh" {
+               profileImage = "myCardLogo"
+           }
+       }
+    
+    func handleActionSheetSelectionBackground(){
         
         if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")]) {
             colorsForBackground8 = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
@@ -73,6 +83,15 @@ struct InsideAppHomeView: View {
             colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
         }
     }
+    
+    func handleActionSheetSelectionContacts(){
+           
+           if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")]) {
+               colorsForBackground8 = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
+           } else if colorsForBackground8  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) {
+               colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+           }
+       }
     
 }
 

@@ -28,47 +28,87 @@ struct SignUpView: View {
             
             VStack {
                 
+                VStack{
+                    
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 180, height: 180)
+                        .clipShape( Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color("Shadow"), lineWidth: 10))
+                        .padding(20)
+                        .opacity(0.4)
+                    
+                  
+                    
+                    TextField("Username", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    TextField("Password", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    TextField("Profile Image", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    
+                    TextField("First Name", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    TextField("Last Name", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    
+                    TextField("Birth Date", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    
+                    TextField("First URL Link for Card", text: $username)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 27.0)
+                    Text("Add Another URL")
+                        .foregroundColor(Color("Shadow"))
+                    
+                    HStack {
+                        
+                        Button(action: {
+                            withAnimation {
+                                viewRouter.currentPage = .page4
+                            }
+                        }) {
+                            SignInButton().padding(10)
+                        }
+                        Button(action: {
+                            withAnimation {
+                                viewRouter.currentPage = .page1
+                            }
+                        }) {
+                            GoHomeButton().padding(10)
+                        }
+                        
+                    }
+                    
+                }
                 Spacer()
                 
-                TextField("First Name", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal, 27.0)
-                
-                TextField("Last Name", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal, 27.0)
-                
-                TextField("Birth Date", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal, 27.0)
-                
-                TextField("First URL Link", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal, 27.0)
-                Text("Add Another URL")
-                    .foregroundColor(Color("Shadow"))
-                
-                Spacer()
-                
-//                Button(action: {
-//                    //asdfasdf
-//                    withAnimation {
-//                        viewRouter.currentPage = .page1
-//                }
-//            })
-//                Text("Back")
-//                    .foregroundColor(.white)
-//                    .frame(width: 130, height: 50)
-//                    .background(Color("PrimaryColor"))
-//                    .cornerRadius(15)
-//                    .padding(.top, 20)
-//                    .padding(4)
-//                    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-//
             }
         }
-                
-                
+    }
+}
+
+struct GoHomeButton : View {
+    var body: some View {
+        Text("Back")
+            .foregroundColor(.white)
+            .frame(width: 150, height: 50)
+            .background(Color("PrimaryColor"))
+            .cornerRadius(15)
+            .padding(.top, 10)
+            .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
     }
 }
 

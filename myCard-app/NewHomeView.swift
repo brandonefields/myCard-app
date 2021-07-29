@@ -33,13 +33,20 @@ struct NewHomeView: View {
                         Text("Cards")
                     }
                 }.tag(3)
+            ContactsView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person.3.fill")
+                        Text("Contacts")
+                    }
+                }.tag(4)
             OpenView()
                 .tabItem {
                     VStack {
                         Image(systemName: "figure.walk")
                         Text("Log Out")
                     }
-                }.tag(4)
+                }.tag(5)
         }
     }
 }

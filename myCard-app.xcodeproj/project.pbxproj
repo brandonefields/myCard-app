@@ -23,6 +23,7 @@
 		E68FD86826B07CE400529EFB /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86726B07CE400529EFB /* CardsView.swift */; };
 		E68FD86A26B0937C00529EFB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86926B0937C00529EFB /* ProfileView.swift */; };
 		E68FD86C26B09A1700529EFB /* InsideAppHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */; };
+		E690E2EF26B236F6002EB12C /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E690E2EE26B236F6002EB12C /* ContactsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E68FD86726B07CE400529EFB /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		E68FD86926B0937C00529EFB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideAppHomeView.swift; sourceTree = "<group>"; };
+		E690E2EE26B236F6002EB12C /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,6 @@
 				E68FD85926AE4FEB00529EFB /* HomeView.swift */,
 				E68FD84826AE4D3F00529EFB /* myCard_appApp.swift */,
 				E68FD85D26AE504F00529EFB /* ViewRouter.swift */,
-				E68FD86126AE50CD00529EFB /* Helper.swift */,
 				E68FD85F26AE509400529EFB /* PreLaunchView.swift */,
 				E68FD86526B078DC00529EFB /* NewHomeView.swift */,
 				E68FD86726B07CE400529EFB /* CardsView.swift */,
@@ -90,8 +91,10 @@
 				E650C6E326B1B14C009B92E7 /* BcardsView.swift */,
 				E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */,
 				E650C6E526B1CABE009B92E7 /* BcardsWithAlertsView.swift */,
+				E690E2EE26B236F6002EB12C /* ContactsView.swift */,
 				E68FD84C26AE4D4000529EFB /* Assets.xcassets */,
 				E68FD85126AE4D4000529EFB /* Info.plist */,
+				E68FD86126AE50CD00529EFB /* Helper.swift */,
 				E68FD84E26AE4D4000529EFB /* Preview Content */,
 			);
 			path = "myCard-app";
@@ -177,6 +180,7 @@
 				E650C6E626B1CABE009B92E7 /* BcardsWithAlertsView.swift in Sources */,
 				E68FD86826B07CE400529EFB /* CardsView.swift in Sources */,
 				E68FD86026AE509400529EFB /* PreLaunchView.swift in Sources */,
+				E690E2EF26B236F6002EB12C /* ContactsView.swift in Sources */,
 				E68FD85826AE4FAA00529EFB /* MotherVIew.swift in Sources */,
 				E68FD85A26AE4FEB00529EFB /* HomeView.swift in Sources */,
 				E68FD86A26B0937C00529EFB /* ProfileView.swift in Sources */,

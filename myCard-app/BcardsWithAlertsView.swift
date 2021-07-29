@@ -78,7 +78,7 @@ struct BcardsWithAlertsView: View {
                                                 .default(Text("Close")) {
                                                 })
                                     
-                            }
+                                    }
 
                             }
                         }
@@ -97,7 +97,7 @@ struct BcardsWithAlertsView: View {
                                                dismissButton:
                                                 .default(Text("Close")) {
                                                 })
-                            }
+                                    }
                             
                                 }
                         }
@@ -123,7 +123,7 @@ struct BcardsWithAlertsView: View {
                     }
                     VStack {
                         
-                        TextField("Enter a User to Share a Card", text: $username)
+                        TextField("Share Card with (@contact_name)", text: $username)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .frame(width: 320, height: 40, alignment: .center)
                                 .padding(10)
@@ -171,14 +171,6 @@ struct BcardsWithAlertsView: View {
         }
     }
     
-//    func isUserSelected(){
-//
-//        if
-//
-//    }
-    
- 
-
     func casualCardHightlight(){
         if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
             backgroundColor1 = Color.red

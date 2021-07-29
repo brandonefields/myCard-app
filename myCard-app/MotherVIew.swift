@@ -24,6 +24,8 @@ struct MotherView: View {
             NewHomeView()
         case .page5:
             SignUpView()
+        case .page6:
+            ContactsView()
         }
     }
 }

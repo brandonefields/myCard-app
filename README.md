@@ -4,11 +4,19 @@ An app for keeping those connections.
 
 ## Summary
 
- <img src='https://media.giphy.com/media/YwPpkpUCzlfOxs4puN/giphy.gif' height='450'>
+ <img src='https://media.giphy.com/media/0di4uF3soX2BxALDcN/giphy.gif' height='450'>
+
+## Features
+
+ <img src='https://media.giphy.com/media/Hq8MbiiUXjlG1ZXvQb/giphy.gif' height='450'>
+
+- Easily share specified contact information on the go. 
+- Make connections how you want and with who you want. 
 
 ## Technologies
 
-<img src="https://lh5.googleusercontent.com/proxy/6kCFVnL6VTpvVvYLiset8dOXnOHfx1VUXeSIsgqz6UJRi6m6VEA2H4JqpM9tEmRJwtUhQcBbvekcTFgzEOQlHYsyy-HjBsJZXm6m1h_8pULTy77PMe0j3Ra63hvv2-JIH4lHT5uy9qJd1F4DuBex5v8okMwubhvK2pmLgfHE1d2D6ZKOOHexi031U2zAUu6eELffmx0vbQFpa5yQJPhgYQ1N=s0-d" alt="Swift Logo" height="126"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png" alt="Xcode Logo" height="126">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://ih0.redbubble.net/image.415946483.7473/flat,1000x1000,075,f.u1.jpg" alt="Swift Logo" height="126"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png" alt="Xcode Logo" height="126">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 ## Setup
 
@@ -16,11 +24,6 @@ An app for keeping those connections.
 
 ### Set up your front-end
 
-## Features
-
--
--
--
 
 ## Code Snippets
 

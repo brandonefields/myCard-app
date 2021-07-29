@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    private let colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+//    private let colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     
+    @StateObject var background = Background()
+      
     var body: some View {
         
         
         ZStack {
             
-            RadialGradient(gradient: colorsForBackground,
+            RadialGradient(gradient: background.lightmode,
                            center: UnitPoint.center,
                            startRadius: 0,
                            endRadius: 500).ignoresSafeArea(.all)

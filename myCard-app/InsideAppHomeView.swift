@@ -6,21 +6,28 @@
 //
 
 
-
+import Combine
 import SwiftUI
 
+class Background: ObservableObject {
+//    var didChange = PassthroughSubject<Void, Never>()
+    
+   @Published var lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+}
+
 struct InsideAppHomeView: View {
+    @ObservedObject var background = Background()
     
     @State private var showingActionSheet1 = false
     @State private var backgroundColor = Color.white
-    @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+//    @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     @State private var profileImage = "myCardLogo"
     @State private var colorMode = "Dark Mode"
     
     var body: some View {
         ZStack {
             
-            RadialGradient(gradient: colorsForBackground8,
+            RadialGradient(gradient: background.lightmode,
                            center: UnitPoint.center,
                            startRadius: 0,
                            endRadius: 500)
@@ -78,23 +85,23 @@ struct InsideAppHomeView: View {
     
     func handleActionSheetSelectionBackground(){
         
-        if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+        if background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
         && colorMode == "Dark Mode" {
-            colorsForBackground8 = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
+            background.lightmode = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
             colorMode = "Light Mode"
-        } else if colorsForBackground8  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
+        } else if background.lightmode  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
         && colorMode == "Light Mode" {
-            colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+            background.lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
             colorMode = "Dark Mode"
         }
     }
     
     func handleActionSheetSelectionContacts(){
            
-           if colorsForBackground8 == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")]) {
-               colorsForBackground8 = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
-           } else if colorsForBackground8  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) {
-               colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
+           if background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")]) {
+            background.lightmode = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
+           } else if background.lightmode  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) {
+            background.lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
            }
        }
     

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ContactsView: View {
     
     @State private var newContact = ""
@@ -21,6 +22,9 @@ struct ContactsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("Contacts").font( .largeTitle)
+                    .padding(.bottom,20)
+                
                 TextField("Enter a Contact", text:$newContact, onCommit: addNewContact)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()

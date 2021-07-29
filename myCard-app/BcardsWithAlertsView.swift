@@ -21,8 +21,10 @@ struct BcardsWithAlertsView: View {
     @State private var backgroundColor2 = Color("Shadow")
     @State private var backgroundColor3 = Color("Shadow")
     
+    
+    @State private var username = ""
     @State private var selectedCard = "No Card Selected!"
-    @State private var typeOfSelectedCard = ""
+    @State private var sharedCardWith = "No User Selected!"
     
     @State private var showingBcard = false
     
@@ -31,6 +33,8 @@ struct BcardsWithAlertsView: View {
     @State private var professionalCardTitle = "Professional Card"
     
     @State private var correctCard = Int()
+    
+    
     
     @State  private var colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     
@@ -66,8 +70,6 @@ struct BcardsWithAlertsView: View {
                                     .cornerRadius(5)
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 250)
-                                    .padding(2)
-                                    .padding(.top, 10)
                                     .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
                                     .alert(isPresented: $showingAlert1) {
                                         Alert(title: Text(casualCardTitle), message:
@@ -88,7 +90,6 @@ struct BcardsWithAlertsView: View {
                                     .cornerRadius(5)
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 250)
-                                    .padding(2)
                                     .shadow(color: backgroundColor2, radius: 10, x: 0, y: 5)
                                     .alert(isPresented: $showingAlert2) {
                                         Alert(title: Text(bizCajCardTitle), message:
@@ -108,7 +109,6 @@ struct BcardsWithAlertsView: View {
                                     .cornerRadius(5)
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 250)
-                                    .padding(2)
                                     .shadow(color: backgroundColor3, radius: 10, x: 0, y: 5)
                                     .alert(isPresented: $showingAlert3) {
                                         Alert(title: Text(professionalCardTitle), message:
@@ -123,15 +123,19 @@ struct BcardsWithAlertsView: View {
                     }
                     VStack {
                         
+                        TextField("Enter a User to Share a Card", text: $username)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(width: 320, height: 40, alignment: .center)
+                                .padding(10)
+                        
                         HStack {
                             
                             Text("Select Card")
                                 .foregroundColor(.white)
                                 .frame(width: 130, height: 50)
                                 .background(Color("PrimaryColor"))   .cornerRadius(15)
-                                .padding(.top, 20)
-                                .padding(4)
                                 .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+                                .padding(.top,10)
                                 .onTapGesture {
                                     self.showingActionSheet = true
                                     }.actionSheet(isPresented: $showingActionSheet){
@@ -150,12 +154,11 @@ struct BcardsWithAlertsView: View {
                             .frame(width: 130, height: 50)
                             .background(Color("PrimaryColor"))
                             .cornerRadius(15)
-                            .padding(.top, 20)
-                            .padding(4)
                             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+                            .padding(.top,10)
                             .alert(isPresented: $showingAlert){
                                 Alert(title: Text("\(selectedCard)!"),
-                                      message: Text("\(typeOfSelectedCard)"),
+                                      message: Text("\(sharedCardWith)"),
                                       dismissButton: .default(Text("Close")))
                             }
                         }
@@ -168,43 +171,49 @@ struct BcardsWithAlertsView: View {
         }
     }
     
+//    func isUserSelected(){
+//
+//        if
+//
+//    }
+    
  
 
     func casualCardHightlight(){
-        if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == ""{
+        if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
             backgroundColor1 = Color.red
             selectedCard = "You Shared a Casual Card"
-            typeOfSelectedCard = "Casual"
-        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && typeOfSelectedCard == "Casual"{
+            sharedCardWith = "\(username)"
+        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(username)" {
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
-            typeOfSelectedCard = ""
+            sharedCardWith = "No User Selected!"
             
         }
     }
         
     
     func bizCajHightlight(){
-        if backgroundColor2 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == "" {
+        if backgroundColor2 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
             backgroundColor2 = Color.red
             selectedCard = "You Shared a Biz-Caj Card"
-            typeOfSelectedCard = "Biz-Caj"
-        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && typeOfSelectedCard == "Biz-Caj"{
+            sharedCardWith = "\(username)"
+        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && sharedCardWith == "\(username)" {
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
-            typeOfSelectedCard = ""
+            sharedCardWith = "No User Selected!"
         }
     }
     
     func professionalCardHightlight(){
-        if backgroundColor3 == Color("Shadow") && selectedCard == "No Card Selected!" && typeOfSelectedCard == "" {
+        if backgroundColor3 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
             backgroundColor3 = Color.red
             selectedCard = "You Shared a Professional Card"
-            typeOfSelectedCard = "Professional"
-        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && typeOfSelectedCard == "Professional" {
+            sharedCardWith = "\(username)"
+        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && sharedCardWith == "\(username)" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
-            typeOfSelectedCard = ""
+            sharedCardWith = "No User Selected!"
         }
     }
 }

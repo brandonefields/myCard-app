@@ -6,7 +6,12 @@ An app for keeping those connections.
 
  <img src='https://media.giphy.com/media/0di4uF3soX2BxALDcN/giphy.gif' height='450'>
 
- <img src='https://media.giphy.com/media/0di4uF3soX2BxALDcN/giphy.gif' height='450'>
+## Features
+-
+-
+-
+
+ <img src='https://media.giphy.com/media/whgFsVZr3kIItKHXZO/giphy.gif' height='450'>
 
 ## Technologies
 
@@ -19,11 +24,6 @@ An app for keeping those connections.
 
 ### Set up your front-end
 
-## Features
-
--
--
--
 
 ## Code Snippets
 

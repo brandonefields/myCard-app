@@ -21,8 +21,7 @@ struct PreLaunch: View {
                OpenView()
             } else {
                 ZStack {
-                    Color("Background")
-                        .edgesIgnoringSafeArea( .all )
+                    
                     Image("myCardLogo")
                         .resizable()
                         .frame(width: 10, height: 10)

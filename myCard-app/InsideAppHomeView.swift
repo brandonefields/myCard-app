@@ -58,6 +58,7 @@ struct InsideAppHomeView: View {
                     .frame(width: 200, height: 50)
                     .background(Color("PrimaryColor"))   .cornerRadius(15)
                     .padding(.top,10)
+                    .font(.headline)
                     .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                         .onTapGesture { self.showingActionSheet1 = true }
                             .actionSheet(isPresented: $showingActionSheet1){

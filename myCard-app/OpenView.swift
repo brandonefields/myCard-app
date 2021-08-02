@@ -24,8 +24,6 @@ struct OpenView: View {
     var body: some View {
         VStack {
 
-            Open()
-            
             TextField("Username", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 27.0)
@@ -46,15 +44,12 @@ struct OpenView: View {
                
                 Button(action: {
                     withAnimation {
-                        viewRouter.currentPage = .page4
+                        handleLogIn()
                     }
                 }) {
                     SignInButton().padding(10)
                 }
             }
-         
-        
-       
         }
         .background(Image("b_card")
                         .resizable()
@@ -64,22 +59,15 @@ struct OpenView: View {
         )
 
     }
-  
-}
-
-struct Open : View {
-    var body: some View {
-       Text("Welcome To myCard")
-        .fontWeight(.bold)
-        .font(.title)
-        .multilineTextAlignment(.center)
-        .padding(.bottom, 20)
-        .cornerRadius(5)
-        .foregroundColor(Color("PrimaryColor"))
-        .padding(.vertical,10)
-        .padding(.horizontal, 60)
-        .shadow(color: .gray, radius: 20, x: 0, y: 5)
+    
+  func  handleLogIn (){
+    if( username == "" ) {
+        return viewRouter.currentPage = .page5
+    } else if ( username != "") {
+        return viewRouter.currentPage = .page4
     }
+  }
+  
 }
 
 struct SignUpButton : View {
@@ -90,6 +78,7 @@ struct SignUpButton : View {
             .background(Color("PrimaryColor"))   .cornerRadius(15)
             .padding(.top, 10)
             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+            .font(.headline)
     }
 }
 
@@ -101,6 +90,7 @@ struct SignInButton : View {
             .background(Color("PrimaryColor"))   .cornerRadius(15)
             .padding(.top, 10)
             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+            .font(.headline)
     }
 }
 

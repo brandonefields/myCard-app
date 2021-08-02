@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E600540326B8405C008719F0 /* Bcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600540226B8405C008719F0 /* Bcard.swift */; };
 		E650C6E426B1B14C009B92E7 /* BcardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650C6E326B1B14C009B92E7 /* BcardsView.swift */; };
 		E650C6E626B1CABE009B92E7 /* BcardsWithAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650C6E526B1CABE009B92E7 /* BcardsWithAlertsView.swift */; };
 		E68FD84926AE4D3F00529EFB /* myCard_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FD84826AE4D3F00529EFB /* myCard_appApp.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E600540226B8405C008719F0 /* Bcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bcard.swift; sourceTree = "<group>"; };
 		E650C6E326B1B14C009B92E7 /* BcardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BcardsView.swift; sourceTree = "<group>"; };
 		E650C6E526B1CABE009B92E7 /* BcardsWithAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BcardsWithAlertsView.swift; sourceTree = "<group>"; };
 		E68FD84526AE4D3F00529EFB /* myCard-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "myCard-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				E68FD85126AE4D4000529EFB /* Info.plist */,
 				E68FD86126AE50CD00529EFB /* Helper.swift */,
 				E68FD84E26AE4D4000529EFB /* Preview Content */,
+				E600540226B8405C008719F0 /* Bcard.swift */,
 			);
 			path = "myCard-app";
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			files = (
 				E650C6E626B1CABE009B92E7 /* BcardsWithAlertsView.swift in Sources */,
 				E68FD86826B07CE400529EFB /* CardsView.swift in Sources */,
+				E600540326B8405C008719F0 /* Bcard.swift in Sources */,
 				E68FD86026AE509400529EFB /* PreLaunchView.swift in Sources */,
 				E690E2EF26B236F6002EB12C /* ContactsView.swift in Sources */,
 				E68FD85826AE4FAA00529EFB /* MotherVIew.swift in Sources */,

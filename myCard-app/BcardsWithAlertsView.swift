@@ -143,6 +143,7 @@ struct BcardsWithAlertsView: View {
                                 .background(Color("PrimaryColor"))   .cornerRadius(15)
                                 .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                                 .padding(.top,10)
+                                .font(.headline)
                                 .onTapGesture {
                                     self.showingActionSheet = true
                                     }.actionSheet(isPresented: $showingActionSheet){
@@ -156,11 +157,11 @@ struct BcardsWithAlertsView: View {
                             
                             Button("Share Card") {
                                 showingAlert = true
-                            }
-                            .foregroundColor(.white)
+                            }.foregroundColor(.white)
                             .frame(width: 130, height: 50)
                             .background(Color("PrimaryColor"))
                             .cornerRadius(15)
+                            .font(.headline)
                             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
                             .padding(.top,10)
                             .alert(isPresented: $showingAlert){

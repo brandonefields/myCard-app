@@ -38,6 +38,19 @@ struct BcardsWithAlertsView: View {
     @State var input: String = ""
     @State var typing = false
     
+    var title: String = "Full Stack Developer"
+    
+    var firstName: String = "Brandon"
+    var lastName: String = "Fields"
+    var source1: String = "@GitHub"
+    var source2: String = "@Linked_In"
+    var source3: String = "@Instagram"
+    var source4: String = "@FaceBook"
+    var source5: String = "@Medium"
+    var source6: String = "@Gmail"
+    
+    
+    
     
     
     @State  private var colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
@@ -69,21 +82,57 @@ struct BcardsWithAlertsView: View {
                             
                             Button(action: {
                                 showingAlert1 = true
-                            }) { Image("casual_b_card")
-                                    .resizable()
-                                    .cornerRadius(5)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 250)
-                                    .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
-                                    .alert(isPresented: $showingAlert1) {
-                                        Alert(title: Text(casualCardTitle), message:
-                                          Text("This card is for casual relationships."),
-                                               dismissButton:
-                                                .default(Text("Close")) {
-                                                })
+                            }) {
+                                
+                                ZStack{
                                     
+                                    
+                                
+                                    Image("paperTexture")
+                                        .resizable()
+                                        .cornerRadius(5)
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 250, height: 150)
+                                        .clipped()
+                                        .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
+                                        .alert(isPresented: $showingAlert1) {
+                                            Alert(title: Text(casualCardTitle), message:
+                                              Text("This card is for casual relationships."),
+                                                   dismissButton:
+                                                    .default(Text("Close")) {
+                                                    })}
+                                    
+                                    ZStack{
+                                        
+                                        Rectangle()
+                                            .fill(Color.gray)
+                                            .frame(width: 200, height: 60, alignment: .center)
+                                            .opacity(0.1)
+                                            .shadow(radius: 20)
+                                            .cornerRadius(2)
+                                            .offset(CGSize(width: 0.0, height: -18.0)
+                                            )
+                                        
+                                        VStack {
+                                            
+                                            VStack {
+                                                
+                                                Text("\(firstName) \(lastName)")
+                                                    .foregroundColor(.black).font(.title)
+                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20))
+                                                
+                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                
+                                            }.padding(5)
+                                           
+                                            
+                                            Text("\(source3)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                            
+                                            Text("\(source4)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                            
+                                        }
                                     }
-
+                                }
                             }
                         }
                         VStack {

@@ -9,11 +9,26 @@ import SwiftUI
 
 struct BcardView: View {
     
-    var firstName: String
-    var lastName: String
+    var firstName: String = "Brandon"
+    var lastName: String = "Fields"
+    var source1: String = "@GitHub"
+    var source2: String = "@LinkedIn"
     
     var body: some View {
-        Text("hello")
+        ZStack {
+            
+            VStack {
+                
+                Text("\(firstName) \(lastName)")
+                    .padding(1)
+                    .font(.title)
+                    .cornerRadius(1.5)
+                    
+                Text(" \(source1)")
+                Text(" \(source2)")
+                
+            }
+        }.background(Image("paperTexture")).frame(width: 250, height: 150, alignment: .center).clipped()
     }
 }
 

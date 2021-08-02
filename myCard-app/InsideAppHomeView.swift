@@ -9,20 +9,20 @@
 import Combine
 import SwiftUI
 
-class Background: ObservableObject {
-//    var didChange = PassthroughSubject<Void, Never>()
-    
-   @Published var lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
-}
+
 
 struct InsideAppHomeView: View {
-    @ObservedObject var background = Background()
+    
+    
+    
     
     @State private var showingActionSheet1 = false
     @State private var backgroundColor = Color.white
 //    @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     @State private var profileImage = "myCardLogo"
     @State private var colorMode = "Dark Mode"
+    
+    @EnvironmentObject var background: Background
     
     var body: some View {
         ZStack {
@@ -110,7 +110,7 @@ struct InsideAppHomeView: View {
 
 struct InsideAppHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        InsideAppHomeView()
+        InsideAppHomeView().environmentObject(Background())
     }
 }
 

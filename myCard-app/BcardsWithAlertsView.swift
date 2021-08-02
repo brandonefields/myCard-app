@@ -10,6 +10,8 @@ import SwiftUI
 
 struct BcardsWithAlertsView: View {
     
+   
+    
     @State private var showingAlert = false
     @State private var showingAlert1 = false
     @State private var showingAlert2 = false
@@ -43,6 +45,7 @@ struct BcardsWithAlertsView: View {
     
     var firstName: String = "Brandon"
     var lastName: String = "Fields"
+    
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
     var source3: String = "Instagram"
@@ -52,13 +55,15 @@ struct BcardsWithAlertsView: View {
     
     @State  private var colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     
+    @EnvironmentObject var background: Background
+    
     var body: some View {
         
         ZStack {
             
             
             
-            RadialGradient(gradient: colorsForBackground,
+            RadialGradient(gradient: background.lightmode,
                            center: UnitPoint.center,
                            startRadius: 0,
                            endRadius: 500)
@@ -92,18 +97,18 @@ struct BcardsWithAlertsView: View {
                                         .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
                                         .alert(isPresented: $showingAlert1) {
                                             Alert(title: Text(casualCardTitle), message:
-                                              Text("This card is for casual relationships."),
+                                              Text(" \(source3), \(source4)"),
                                                    dismissButton:
                                                     .default(Text("Close")) {
                                                     })}
                                 
                                     
                                     
-                                    ZStack{
+                                    ZStack {
                                         
                                         Rectangle()
                                             .fill(Color.gray)
-                                            .frame(width: 200, height: 70, alignment: .center)
+                                            .frame(width: 200, height: 50, alignment: .center)
                                             .opacity(0.1)
                                             .shadow(radius: 20)
                                             .cornerRadius(2)
@@ -116,29 +121,32 @@ struct BcardsWithAlertsView: View {
                                                 
                                                 Text("\(firstName) \(lastName)")
                                                     .foregroundColor(.black).font(.title)
-                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20))
+                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
                                                 
-                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 12)).padding(-5)
                                                 
-                                            }.padding(5)
+                                           
+                                            } .padding(10)
+                                        
+                                            VStack {
+                                                
+                                                HStack {
+                                                    
+                                                    Image("Instagram_icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    
+                                                    Text("\(source3)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                }
                                             
-                                            HStack {
-                                                
-                                                
-                                                Image("Instagram_icon").resizable().frame(width: 10, height:10).padding(1)
-                                                
-                                                Text("\(source3)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
-                                            }
-                                            
-                                            HStack {
-                                                
-                                                Image("facebook_icon").resizable().frame(width: 10, height:10).padding(1)
-                                                
-                                                Text("\(source4)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
-                                            }
-                                        }
+                                                HStack {
+                                                    
+                                                    Image("facebook_icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    
+                                                    Text("\(source4)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                }
+                                            }.frame(alignment: .center)
+                                        }                                   }
                                     }
                                 }
                             }
@@ -159,7 +167,7 @@ struct BcardsWithAlertsView: View {
                                         .shadow(color: backgroundColor2, radius: 10, x: 0, y: 5)
                                         .alert(isPresented: $showingAlert2) {
                                             Alert(title: Text(bizCajCardTitle), message:
-                                              Text("This card is for most  relationships."),
+                                              Text(" \(source3), \(source5), \(source6)"),
                                                    dismissButton:
                                                     .default(Text("Close")) {
                                                     })}
@@ -170,7 +178,7 @@ struct BcardsWithAlertsView: View {
                                         
                                         Rectangle()
                                             .fill(Color.gray)
-                                            .frame(width: 200, height: 60, alignment: .center)
+                                            .frame(width: 200, height: 50, alignment: .center)
                                             .opacity(0.1)
                                             .shadow(radius: 20)
                                             .cornerRadius(2)
@@ -183,38 +191,41 @@ struct BcardsWithAlertsView: View {
                                                 
                                                 Text("\(firstName) \(lastName)")
                                                     .foregroundColor(.black).font(.title)
-                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20))
+                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
                                                 
-                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 12)).padding(-5)
                                                 
-                                            }.padding(1)
-                                           
-                                            HStack {
-                                                
-                                                Image("Instagram_icon").resizable().frame(width: 10, height:10).padding(1)
-                                                
-                                                Text("\(source3)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
-                                            }
+                                            }.padding(10)
                                             
-                                            HStack {
+                                            VStack {
                                                 
-                                                Image("medium _icon").resizable().frame(width: 10, height:10).padding(1)
+                                                HStack {
+                                                    
+                                                    Image("Instagram_icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    
+                                                    Text("\(source3)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                }
                                                 
-                                                Text("\(source5)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                                HStack {
+                                                    
+                                                    Image("medium _icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    
+                                                    Text("\(source5)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                }
+                                                
+                                                HStack {
+                                                    
+                                                    Image("gmail_icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    
+                                                    Text("\(source6)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                }
                                             }
-                                            
-                                            HStack {
-                                                
-                                                Image("gmail_icon").resizable().frame(width: 10, height:10).padding(1)
-                                                
-                                                Text("\(source6)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
-                                            }
-                                                                                 }
+                                        }
                                     }
                                 }
-                            }
+                            }.padding(.top,20)
                         }
                         VStack {
                             
@@ -233,7 +244,7 @@ struct BcardsWithAlertsView: View {
                                         .shadow(color: backgroundColor3, radius: 10, x: 0, y: 5)
                                         .alert(isPresented: $showingAlert3) {
                                             Alert(title: Text(professionalCardTitle), message:
-                                              Text("This card is for professional relationships."),
+                                                    Text(" \(source2), \(source1), \(source6)").font(.title),
                                                    dismissButton:
                                                     .default(Text("Close")) {
                                                     })}
@@ -242,7 +253,7 @@ struct BcardsWithAlertsView: View {
                                         
                                         Rectangle()
                                             .fill(Color.gray)
-                                            .frame(width: 200, height: 60, alignment: .center)
+                                            .frame(width: 200, height: 50, alignment: .center)
                                             .opacity(0.1)
                                             .shadow(radius: 20)
                                             .cornerRadius(2)
@@ -255,39 +266,38 @@ struct BcardsWithAlertsView: View {
                                                 
                                                 Text("\(firstName) \(lastName)")
                                                     .foregroundColor(.black).font(.title)
-                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20))
+                                                    .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
                                                 
-                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
+                                                Text("\(title)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 12)).padding(-5)
                                                 
-                                            }.padding(1)
+                                            }.padding(10)
                                            
                                             HStack {
                                                 
                                                 Image("linkedin_icon").resizable().frame(width: 10, height:10).padding(1)
                                                 
-                                                Text("\(source2)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                                Text("\(source2)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
                                             }
                                             
                                             HStack {
                                                 
                                                 Image("github_icon").resizable().frame(width: 10, height:10).padding(1)
                                                 
-                                                Text("\(source1)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                                Text("\(source1)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
                                             }
                                             
                                             HStack {
                                                 
                                                 Image("gmail_icon").resizable().frame(width: 10, height:10).padding(1)
                                                 
-                                                Text("\(source6)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 15))
+                                                Text("\(source6)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
                                             }
-                                                                                    }
+                                        }
                                     }
-                                }
-                            }
-                        }
+                                }.padding(.top,20) .padding(.bottom, 15)                           }
+                        
                     }
                     VStack {
                         
@@ -321,7 +331,8 @@ struct BcardsWithAlertsView: View {
                             
                             Button("Share Card") {
                                 showingAlert = true
-                            }.foregroundColor(.white)
+                            }
+                            .foregroundColor(.white)
                             .frame(width: 130, height: 50)
                             .background(Color("PrimaryColor"))
                             .cornerRadius(15)
@@ -335,7 +346,7 @@ struct BcardsWithAlertsView: View {
                             }
                         }
                     }
-                    Spacer()
+                    
                 
                 }
                 

@@ -11,7 +11,9 @@ struct ProfileView: View {
     
 //    private let colorsForBackground = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     
-    @StateObject var background = Background()
+    @EnvironmentObject var background: Background
+    
+    @State private var fontColor: String = "dark"
       
     var body: some View {
         
@@ -46,30 +48,38 @@ struct ProfileView: View {
                     Text(" Brandon E Fields ")
                         .font(.system(size: 30))
                         .underline()
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(20)
                     Text("Sept-19-1986")
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(1)
                     Text("GitHub")
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(1)
                     Text("LinkedIn")
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(1)
                     Text("Portfolio")
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(1)
                     Text("Instagram")
-                        .foregroundColor(Color("Shadow"))
+                        .foregroundColor(Color("\(fontColor)"))
                         .padding(1)
                     Spacer()
                 }
                 
             }
             
-        }
+        }.onAppear{ handleFontColor()}
 
+    }
+    
+    func handleFontColor(){
+        if (background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])) {
+            fontColor = "dark"
+        } else if (background.lightmode == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) ) {
+            fontColor = "light"
+        }
     }
    
 }

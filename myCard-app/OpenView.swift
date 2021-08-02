@@ -61,9 +61,9 @@ struct OpenView: View {
     }
     
   func  handleLogIn (){
-    if( username == "" ) {
+    if( username == "" && password == "" ) {
         return viewRouter.currentPage = .page5
-    } else if ( username != "") {
+    } else if ( username == password) {
         return viewRouter.currentPage = .page4
     }
   }
@@ -75,7 +75,8 @@ struct SignUpButton : View {
         Text("Sign Up")
             .foregroundColor(.white)
             .frame(width: 150, height: 50)
-            .background(Color("PrimaryColor"))   .cornerRadius(15)
+            .background(Color("PrimaryColor"))
+            .cornerRadius(15)
             .padding(.top, 10)
             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
             .font(.headline)
@@ -87,7 +88,8 @@ struct SignInButton : View {
         Text("Sign In")
             .foregroundColor(.white)
             .frame(width: 150, height: 50)
-            .background(Color("PrimaryColor"))   .cornerRadius(15)
+            .background(Color("PrimaryColor"))
+            .cornerRadius(15)
             .padding(.top, 10)
             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
             .font(.headline)

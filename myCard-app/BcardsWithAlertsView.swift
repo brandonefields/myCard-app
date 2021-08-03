@@ -210,7 +210,7 @@ struct BcardsWithAlertsView: View {
                                                 
                                                 HStack {
                                                     
-                                                    Image("medium _icon").resizable().frame(width: 10, height:10).padding(1)
+                                                    Image("medium_icon").resizable().frame(width: 10, height:10).padding(1)
                                                     
                                                     Text("\(source5)").foregroundColor(.black).font(.custom("Roboto Mono Thin for Powerline", size: 10))
                                                 }

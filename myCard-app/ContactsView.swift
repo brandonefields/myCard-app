@@ -14,11 +14,12 @@ struct ContactsView: View {
     @State private var newContact = ""
     @State private var rootword = ""
     @State private var contactsList = ["@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    @State private var fontColor: String = "dark"
+    @State private var listColor: String = "dark"
+    @State private var contactsColor: String = "dark"
     
-    @State private var fontColor: String =  "dark"
     
     @EnvironmentObject var viewRouter: ViewRouter
-
     @EnvironmentObject var background: Background
 
 
@@ -34,20 +35,43 @@ struct ContactsView: View {
                 
                 VStack {
                     
-                    Text("Contacts").font(.custom("Roboto-Thin", size: 45))
-                        .padding(.bottom,20).foregroundColor(Color("\(fontColor)"))
-                    
-                    TextField("Enter a Contact", text:$newContact, onCommit: addNewContact)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .keyboardType(.default)
-                    
-                    
-                    List(contactsList, id: \.self){
-                        Image(systemName: "person.circle")
-                        Text($0)}
+                    VStack {
+                        
+                        Text("Contacts").font(.custom("Roboto-Thin", size: 45))
+                            .padding(.bottom,20).foregroundColor(Color("\(fontColor)"))
+                        
+                        TextField("Enter a Contact", text:$newContact, onCommit: addNewContact)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                            .keyboardType(.default)
+                        
+                    }
+                    VStack {
+                        
+                        List(contactsList, id: \.self){
+                            Image(systemName: "person.circle")
+                            Text($0)
+                            Spacer()
+                            Button(action: {
+                                handleContactClick()
+                            }, label: {
+                                Image(systemName: "checkmark.circle.fill")
+                            })
+                            .cornerRadius(10.0).background(Color("\(contactsColor)")).cornerRadius(10.0).opacity(0.4)
+                        }
+                    }.onTapGesture {
+                        handleContactClick()
+                    }.foregroundColor(Color("\(listColor)"))
                 }
             }.onAppear{handleFontColor() }
+        }
+    }
+    
+    func handleContactClick () {
+        if( contactsColor == "dark" ) {
+            contactsColor = "green"
+        } else if( contactsColor == "green"){
+            contactsColor = "dark"
         }
     }
     
@@ -66,7 +90,6 @@ struct ContactsView: View {
             return
         }
         
-        // extra validation goes here
         contactsList.insert(contact, at: 0)
         newContact = ""
     }

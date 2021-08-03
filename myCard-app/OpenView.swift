@@ -21,6 +21,8 @@ struct OpenView: View {
     
     @State private var selectedUser: User?
     
+    @State private var showingAlert: Bool = false
+    
     var body: some View {
         VStack {
 
@@ -42,12 +44,17 @@ struct OpenView: View {
                     SignUpButton().padding(10)
                 }
                
-                Button(action: {
+                Button(action: { if( username == "" || username == password ||  username != password){
                     withAnimation {
                         handleLogIn()
-                    }
+                    };
+                    showingAlert = true
+                }
                 }) {
-                    SignInButton().padding(10)
+                    SignInButton().alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Sign In Error"), message: Text("Username or Password incorrect"),
+                              dismissButton: .default(Text("OK")))
+                     }.padding(10)
                 }
             }
         }
@@ -55,15 +62,13 @@ struct OpenView: View {
                         .resizable()
                         .frame(width: 820, height:1000, alignment: .center)
                         .edgesIgnoringSafeArea(.all)
-                        .opacity(0.6)
-        )
-
+                        .opacity(0.6))
     }
     
-  func  handleLogIn (){
-    if( username == "" ) {
-        
-    } else if ( username != "") {
+    func handleLogIn (){
+        if( username == "" ) {
+        print("incorrect  username or password")
+    } else if ( username == password) {
         return viewRouter.currentPage = .page4
     }
   }

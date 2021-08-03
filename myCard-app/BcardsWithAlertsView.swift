@@ -298,7 +298,7 @@ struct BcardsWithAlertsView: View {
                                             }
                                         }
                                     }
-                                }.padding(.top,20) .padding(.bottom, 15).onLongPressGesture(minimumDuration: 2){print("Liong")}
+                                }.padding(.top,20) .padding(.bottom, 15)
                             }
                     }
                     VStack {
@@ -312,40 +312,46 @@ struct BcardsWithAlertsView: View {
                                 .padding(10)
                         
                         HStack {
-                            
-                            Text("Select Card")
-                                .foregroundColor(.white)
-                                .frame(width: 130, height: 50)
-                                .background(Color("PrimaryColor"))   .cornerRadius(15)
-                                .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-                                .padding(.top,10)
-                                .font(.headline)
-                                .onTapGesture {
-                                    self.showingActionSheet = true
-                                    }.actionSheet(isPresented: $showingActionSheet){
-                                        ActionSheet(title: Text("Select Card"), message:
-                                                    Text("Select a Card"), buttons: [
-                                                        .default(Text("Casual")) { casualCardHightlight() },
-                                                        .default(Text ("Biz-Caj")) { bizCajHightlight() },
-                                                        .default(Text("Professional")) { professionalCardHightlight() },
-                                                        .cancel()
-                                                    ])}
-                            
-                            Button("Share Card") {
-                                showingAlert = true
+                            VStack {
                                 
+                                Text("Select Card")
+                                    .foregroundColor(.white)
+                                    .frame(width: 130, height: 50)
+                                    .background(Color("PrimaryColor"))   .cornerRadius(15)
+                                    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+                                    .padding(.top,10)
+                                    .font(.headline)
+                                    .onTapGesture {
+                                        self.showingActionSheet = true
+                                        }.actionSheet(isPresented: $showingActionSheet){
+                                            ActionSheet(title: Text("Select Card"), message:
+                                                        Text("Select a Card"), buttons: [
+                                                            .default(Text("Casual")) { casualCardHightlight() },
+                                                            .default(Text ("Biz-Caj")) { bizCajHightlight() },
+                                                            .default(Text("Professional")) { professionalCardHightlight() },
+                                                            .cancel()
+                                                        ])}
                             }
-                            .foregroundColor(.white)
-                            .frame(width: 130, height: 50)
-                            .background(Color("PrimaryColor"))
-                            .cornerRadius(15)
-                            .font(.headline)
-                            .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-                            .padding(.top,10)
-                            .alert(isPresented: $showingAlert){
-                                Alert(title: Text("\(selectedCard)!"),
-                                      message: Text("\(sharedCardWith)"),
-                                      dismissButton: .default(Text("Close")))
+                            VStack {
+              
+                                 Button("Share Card") {
+                                     showingAlert = true
+                                     
+                                 }
+                                 .foregroundColor(.white)
+                                 .frame(width: 130, height: 50)
+                                 .background(Color("PrimaryColor"))
+                                 .cornerRadius(15)
+                                 .font(.headline)
+                                 .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+                                 .padding(.top,10)
+                                 .alert(isPresented: $showingAlert){
+                                    return Alert(title: Text("\(selectedCard)!"),
+                                           message: Text("\(sharedCardWith)"),
+                                           dismissButton: .default(Text("Close")))
+                                   
+                                 }
+                                
                             }
                         }
                     }

@@ -32,13 +32,13 @@ struct PreLaunch: View {
             }
         }
         .onAppear {
-            withAnimation(.linear(duration: 2)) {
+            withAnimation(.linear(duration: 1.5)) {
                 self.angle = 0
                 self.scale = 50
                 self.opacity = 0
             }
             
-            withAnimation(Animation.linear.delay(2)){
+            withAnimation(Animation.linear.delay(1.5)){
                 self.showMainView = true
             }
         }

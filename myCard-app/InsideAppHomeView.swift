@@ -9,16 +9,11 @@
 import Combine
 import SwiftUI
 
-
-
 struct InsideAppHomeView: View {
     
-    
-    
-    
+    @State private var fontColor: String =  "dark"
     @State private var showingActionSheet1 = false
     @State private var backgroundColor = Color.white
-//    @State private var colorsForBackground8 = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
     @State private var profileImage = "myCardLogo"
     @State private var colorMode = "Dark Mode"
     
@@ -49,10 +44,12 @@ struct InsideAppHomeView: View {
                 Spacer()
             }
             VStack {
-                
                 Spacer()
                 Spacer()
-                
+               
+                Text("Home").font(.custom("Roboto-Thin", size: 60))
+                    .padding(.bottom,20).foregroundColor(Color("\(fontColor)")).shadow(color: Color("\(fontColor)"), radius: 10, x: 0, y: 5)
+           
                 Text("Preferences")
                     .foregroundColor(.white)
                     .frame(width: 200, height: 50)
@@ -90,10 +87,12 @@ struct InsideAppHomeView: View {
         && colorMode == "Dark Mode" {
             background.lightmode = Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
             colorMode = "Light Mode"
+            fontColor = "light"
         } else if background.lightmode  == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")])
         && colorMode == "Light Mode" {
             background.lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
             colorMode = "Dark Mode"
+            fontColor = "dark"
         }
     }
     
@@ -105,7 +104,6 @@ struct InsideAppHomeView: View {
             background.lightmode = Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])
            }
        }
-    
 }
 
 struct InsideAppHomeView_Previews: PreviewProvider {

@@ -23,9 +23,6 @@ struct ContactsView: View {
 
 
     var body: some View {
-        
-        
-        
         NavigationView {
             
             ZStack {
@@ -37,7 +34,7 @@ struct ContactsView: View {
                 
                 VStack {
                     
-                    Text("Contacts").font( .largeTitle)
+                    Text("Contacts").font(.custom("Roboto-Thin", size: 45))
                         .padding(.bottom,20).foregroundColor(Color("\(fontColor)"))
                     
                     TextField("Enter a Contact", text:$newContact, onCommit: addNewContact)
@@ -90,6 +87,6 @@ struct GoHomeButton2 : View {
 
 struct ContactsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsView()
+        ContactsView().environmentObject(Background())
     }
 }

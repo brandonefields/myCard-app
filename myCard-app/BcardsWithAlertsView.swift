@@ -41,6 +41,8 @@ struct BcardsWithAlertsView: View {
     @State var input: String = ""
     @State var typing = false
     
+    @State var inputTextString: String = ""
+    
     var title: String = "Full Stack Developer"
     
     var firstName: String = "Brandon"
@@ -120,7 +122,7 @@ struct BcardsWithAlertsView: View {
                                             VStack {
                                                 
                                                 Text("\(firstName) \(lastName)")
-                                                    .foregroundColor(.black).font(.title)
+                                                    .foregroundColor(.black).font(.custom("Roboto-Thin", size: 25))
                                                     .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
@@ -190,7 +192,7 @@ struct BcardsWithAlertsView: View {
                                             VStack {
                                                 
                                                 Text("\(firstName) \(lastName)")
-                                                    .foregroundColor(.black).font(.title)
+                                                    .foregroundColor(.black).font(.custom("Roboto-Thin", size: 25))
                                                     .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
@@ -265,7 +267,7 @@ struct BcardsWithAlertsView: View {
                                             VStack {
                                                 
                                                 Text("\(firstName) \(lastName)")
-                                                    .foregroundColor(.black).font(.title)
+                                                    .foregroundColor(.black).font(.custom("Roboto-Thin", size: 25))
                                                     .font(.custom("Roboto Mono Thin for Powerline", size: 20)).padding(-10)
                                                 
                                                 Divider().padding(1).frame(width: 220, height: 0, alignment: .center)
@@ -296,12 +298,12 @@ struct BcardsWithAlertsView: View {
                                             }
                                         }
                                     }
-                                }.padding(.top,20) .padding(.bottom, 15)                           }
-                        
+                                }.padding(.top,20) .padding(.bottom, 15).onLongPressGesture(minimumDuration: 2){print("Liong")}
+                            }
                     }
                     VStack {
                         
-                        TextField("Share Card with (@contact_name)", text: $username,
+                        TextField("\(inputTextString)", text: $username,
                                   onEditingChanged: { self.typing = $0}, onCommit: {
                                     self.output = self.input
                                   })
@@ -331,6 +333,7 @@ struct BcardsWithAlertsView: View {
                             
                             Button("Share Card") {
                                 showingAlert = true
+                                
                             }
                             .foregroundColor(.white)
                             .frame(width: 130, height: 50)
@@ -346,16 +349,16 @@ struct BcardsWithAlertsView: View {
                             }
                         }
                     }
-                    
-                
                 }
-                
             }
         }
     }
     
-    
-    
+    func handleClearingInputField() {
+        if ( inputTextString != ""){
+            inputTextString = ""
+        }
+    }
     
     func casualCardHightlight(){
         if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
@@ -366,7 +369,6 @@ struct BcardsWithAlertsView: View {
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
-            
         }
     }
         
@@ -398,6 +400,7 @@ struct BcardsWithAlertsView: View {
 
 struct BcardsWithAlertsView_Previews: PreviewProvider {
     static var previews: some View {
-        BcardsWithAlertsView()
+        BcardsWithAlertsView().environmentObject(Background())
     }
 }
+

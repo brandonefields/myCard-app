@@ -16,6 +16,8 @@ struct ProfileView: View {
     var source5: String = "Medium"
     var source6: String = "Gmail"
     
+        
+    
     @EnvironmentObject var background: Background
     
     @State private var fontColor: String = "dark"
@@ -58,17 +60,15 @@ struct ProfileView: View {
                     VStack {
                      
                         Text(" Brandon E Fields ")
-                            .font(.system(size: 30))
-                            .underline()
+                            .font(.custom("Roboto-Thin", size: 30))
                             .foregroundColor(Color("\(fontColor)"))
                             .padding(.top,20)
                             .padding(10)
-                        Text("Sept-19-1986")
-                            .foregroundColor(Color("\(fontColor)"))
-                            .padding(1)
-                            .padding(.bottom, 10)
                         
-                    }.padding(.bottom, 20)
+                        Divider().foregroundColor(Color("\(fontColor)"))
+                      
+                        
+                    }.padding(.bottom, 10)
                     
                     ZStack {
                         
@@ -129,13 +129,12 @@ struct ProfileView: View {
                             }.padding(.bottom, 30)
                         }.frame(width: 200, height: 200, alignment: .center )
                     }
-                }.background(Color("\(boxColor)")).cornerRadius(10.0).shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5).frame(width: 300, height:0, alignment: .center)
+                }.background(Color("\(boxColor)")).opacity(0.9).cornerRadius(10.0).shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5).frame(width: 300, height:0, alignment: .center)
                 Spacer()
                 Spacer()
                 
-            }.onAppear{ handleFontColor()}
+            }
         }
-
     }
     
     func handleFontColor(){

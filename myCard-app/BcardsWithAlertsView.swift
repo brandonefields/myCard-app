@@ -388,9 +388,9 @@ struct BcardsWithAlertsView: View {
     func bizCajHightlight(){
         if backgroundColor2 == Color("Shadow") {
             backgroundColor2 = Color.red
-            selectedCard = "You Shared a Casual Card"
+            selectedCard = "You Shared a Biz-Caj Card"
             sharedCardWith = "\(selectedContact)"
-        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
+        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && sharedCardWith == "\(selectedContact)" {
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
@@ -404,9 +404,9 @@ struct BcardsWithAlertsView: View {
     func professionalCardHightlight(){
         if backgroundColor3 == Color("Shadow") {
             backgroundColor3 = Color.red
-            selectedCard = "You Shared a Casual Card"
+            selectedCard = "You Shared a Professional Card"
             sharedCardWith = "\(selectedContact)"
-        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
+        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && sharedCardWith == "\(selectedContact)" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"

@@ -98,10 +98,13 @@ struct BcardsWithAlertsView: View {
                     
                     VStack {
                         
+// BELOW IS CASUAL B CARD ==================================================================================++++++=====================================
+
+                        
                         VStack {
                             
                             Button(action: {
-                                showingAlert1 = true
+                                casualCardHightlight()
                             }) {
                                 
                                 ZStack{
@@ -113,12 +116,12 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
-                                        .alert(isPresented: $showingAlert1) {
-                                            Alert(title: Text(casualCardTitle), message:
-                                              Text(" \(source3), \(source4)"),
-                                                   dismissButton:
-                                                    .default(Text("Close")) {
-                                                    })}
+//                                        .alert(isPresented: $showingAlert1) {
+//                                            Alert(title: Text(casualCardTitle), message:
+//                                              Text(" \(source3), \(source4)"),
+//                                                   dismissButton:
+//                                                    .default(Text("Close")) {
+//                                                    })}
                                 
                                     
                                     
@@ -169,9 +172,12 @@ struct BcardsWithAlertsView: View {
                                 }
                             }
                         }
+                    
+// BELOW IS BIZ-CAJ CARD ==================================================================================++++++===============
+                    
                         VStack {
                             Button(action: {
-                                showingAlert2 = true
+                                bizCajHightlight()
                             }) {
                                 
                                 ZStack{
@@ -183,12 +189,12 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor2, radius: 10, x: 0, y: 5)
-                                        .alert(isPresented: $showingAlert2) {
-                                            Alert(title: Text(bizCajCardTitle), message:
-                                              Text(" \(source3), \(source5), \(source6)"),
-                                                   dismissButton:
-                                                    .default(Text("Close")) {
-                                                    })}
+//                                        .alert(isPresented: $showingAlert2) {
+//                                            Alert(title: Text(bizCajCardTitle), message:
+//                                              Text(" \(source3), \(source5), \(source6)"),
+//                                                   dismissButton:
+//                                                    .default(Text("Close")) {
+//                                                    })}
                                 
                                     
                                     
@@ -245,10 +251,12 @@ struct BcardsWithAlertsView: View {
                                 }
                             }.padding(.top,20)
                         }
+                    
+// BELOW IS PROFESSIONAL  CARD -------------------------------------------------------------------------------------------
                         VStack {
                             
                             Button(action: {
-                                showingAlert3 = true
+                                professionalCardHightlight()
                             }) {
                                 
                                 ZStack {
@@ -260,12 +268,12 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor3, radius: 10, x: 0, y: 5)
-                                        .alert(isPresented: $showingAlert3) {
-                                            Alert(title: Text(professionalCardTitle), message:
-                                                    Text(" \(source2), \(source1), \(source6)").font(.title),
-                                                   dismissButton:
-                                                    .default(Text("Close")) {
-                                                    })}
+//                                        .alert(isPresented: $showingAlert3) {
+//                                            Alert(title: Text(professionalCardTitle), message:
+//                                                    Text(" \(source2), \(source1), \(source6)").font(.title),
+//                                                   dismissButton:
+//                                                    .default(Text("Close")) {
+//                                                    })}
                                     
                                     ZStack {
                                         
@@ -359,22 +367,22 @@ struct BcardsWithAlertsView: View {
                         HStack {
                             VStack {
                                 
-                                Text("Select Card")
-                                    .foregroundColor(.white)
-                                    .frame(width: 130, height: 50)
-                                    .background(Color("PrimaryColor"))   .cornerRadius(15)
-                                    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-                                    .font(.headline)
-                                    .onTapGesture {
-                                        self.showingActionSheet = true
-                                        }.actionSheet(isPresented: $showingActionSheet){
-                                            ActionSheet(title: Text("Select Card"), message:
-                                                        Text("Select a Card"), buttons: [
-                                                            .default(Text("Casual")) { casualCardHightlight() },
-                                                            .default(Text ("Biz-Caj")) { bizCajHightlight() },
-                                                            .default(Text("Professional")) { professionalCardHightlight() },
-                                                            .cancel()
-                                                        ])}
+//                                Text("Select Card")
+//                                    .foregroundColor(.white)
+//                                    .frame(width: 130, height: 50)
+//                                    .background(Color("PrimaryColor"))   .cornerRadius(15)
+//                                    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
+//                                    .font(.headline)
+//                                    .onTapGesture {
+//                                        self.showingActionSheet = true
+//                                        }.actionSheet(isPresented: $showingActionSheet){
+//                                            ActionSheet(title: Text("Select Card"), message:
+//                                                        Text("Select a Card"), buttons: [
+//                                                            .default(Text("Casual")) { casualCardHightlight() },
+//                                                            .default(Text ("Biz-Caj")) { bizCajHightlight() },
+//                                                            .default(Text("Professional")) { professionalCardHightlight() },
+//                                                            .cancel()
+//                                                        ])}
                             }
                             VStack {
               
@@ -417,6 +425,10 @@ struct BcardsWithAlertsView: View {
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
+        } else if backgroundColor1 == Color.red && sharedCardWith != "\(selectedContact)" {
+            backgroundColor1 = Color("Shadow")
+            selectedCard = "No Card Selected!"
+            sharedCardWith = "No User Selected!"
         }
     }
         
@@ -430,6 +442,10 @@ struct BcardsWithAlertsView: View {
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
+        } else if backgroundColor2 == Color.red && sharedCardWith != "\(selectedContact)" {
+            backgroundColor2 = Color("Shadow")
+            selectedCard = "No Card Selected!"
+            sharedCardWith = "No User Selected!"
         }
     }
     
@@ -439,6 +455,10 @@ struct BcardsWithAlertsView: View {
             selectedCard = "You Shared a Casual Card"
             sharedCardWith = "\(selectedContact)"
         } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
+            backgroundColor3 = Color("Shadow")
+            selectedCard = "No Card Selected!"
+            sharedCardWith = "No User Selected!"
+        } else if backgroundColor3 == Color.red && sharedCardWith != "\(selectedContact)" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"

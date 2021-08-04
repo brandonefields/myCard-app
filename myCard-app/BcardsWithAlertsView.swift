@@ -343,23 +343,18 @@ struct BcardsWithAlertsView: View {
                                         }
                                     }
                                 }.frame(height: 150)
-                            }.accentColor(Color("Shadow"))
+                            }.frame(width: 290).accentColor(Color("Shadow"))
                                 .font(.title3)
                                 .foregroundColor(Color("light"))
-                                .padding(.all)
+                                .padding(9)
                                 .background(Color.gray)
                                 .cornerRadius(8)
+                                
                             .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
                         
                         }.padding(.all)
                             
-//                        TextField("\(inputTextString)", text: $username,
-//                                  onEditingChanged: { self.typing = $0}, onCommit: {
-//                                    self.output = self.input
-//                                  })
-//                                .textFieldStyle(RoundedBorderTextFieldStyle())
-//                                .frame(width: 320, height: 40, alignment: .center)
-//                                .padding(10)
+// BELOW IS TWO BUTTONS ARE LOCATED ----------------------------------------------------------------------------------
                         
                         HStack {
                             VStack {
@@ -411,13 +406,14 @@ struct BcardsWithAlertsView: View {
         }
     }
     
-//THESE THREE FUNCTIONS BELOW ARE FOR THE ACTIONSHEET
+//THESE THREE FUNCTIONS BELOW ARE FOR THE ACTIONSHEET $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    
     func casualCardHightlight(){
         if backgroundColor1 == Color("Shadow") {
             backgroundColor1 = Color.red
             selectedCard = "You Shared a Casual Card"
-            sharedCardWith = "\(tempUsername)"
-        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(tempUsername)" {
+            sharedCardWith = "\(selectedContact)"
+        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
@@ -426,11 +422,11 @@ struct BcardsWithAlertsView: View {
         
     
     func bizCajHightlight(){
-        if backgroundColor2 == Color("Shadow"){
+        if backgroundColor2 == Color("Shadow") {
             backgroundColor2 = Color.red
-            selectedCard = "You Shared a Biz-Caj Card"
-            sharedCardWith = "\(tempUsername)"
-        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && sharedCardWith == "\(tempUsername)" {
+            selectedCard = "You Shared a Casual Card"
+            sharedCardWith = "\(selectedContact)"
+        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
@@ -440,9 +436,9 @@ struct BcardsWithAlertsView: View {
     func professionalCardHightlight(){
         if backgroundColor3 == Color("Shadow") {
             backgroundColor3 = Color.red
-            selectedCard = "You Shared a Professional Card"
-            sharedCardWith = "\(tempUsername)"
-        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && sharedCardWith == "\(tempUsername)" {
+            selectedCard = "You Shared a Casual Card"
+            sharedCardWith = "\(selectedContact)"
+        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(selectedContact)" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"

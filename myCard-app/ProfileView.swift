@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-
+    
+    @State private var contactType = ["@GitHub","@Linked_In","@Instagram","@FaceBook","@Medium","@Gmail"]
+    
+    @State private var isExpanded = false
+    
+    @State private var selectedContact = "Sources"
+    
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
     var source3: String = "Instagram"
@@ -23,6 +29,8 @@ struct ProfileView: View {
     @State private var fontColor: String = "dark"
     
     @State private var boxColor: String = "light"
+    
+    @State private var newSource = ""
       
     var body: some View {
         
@@ -44,109 +52,88 @@ struct ProfileView: View {
                     .shadow(radius: 10)
                     .overlay(Circle().stroke(Color("Shadow"), lineWidth: 5))
                     .padding(10)
-                    .padding(.bottom, 30)
+                    .padding(.bottom,1)
                 Spacer()
             }
             
-          
+            Spacer()
             VStack {
+                Spacer()
+                Spacer()
+                Spacer()
+
+                Text("Brandon E Fields").font(.custom("Roboto-Thin", size: 40))
+                    .padding(.top, 100).foregroundColor(Color("\(fontColor)"))
+                    .padding(1)
+                Divider().frame(width: 200, height: 4, alignment: .center).padding(-9)
                 
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                VStack {
+                TextField("Add a Source", text: $newSource, onCommit: addNewContact)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(1)
+                    .keyboardType(.default)
+                    .frame(width: 300, height: 100, alignment: .center  )
+                
+                
+                
                     
-                    VStack {
-                     
-                        Text(" Brandon E Fields ")
-                            .font(.custom("Roboto-Thin", size: 30))
-                            .foregroundColor(Color("\(fontColor)"))
-                            .padding(.top,20)
-                            .padding(10)
-                        
-                        Divider().foregroundColor(Color("\(fontColor)"))
-                      
-                        
-                    }.padding(.bottom, 10)
-                    
-                    ZStack {
-                        
-                        VStack {
+                    VStack(alignment: .leading, spacing: 15) {
+                       
+                        DisclosureGroup("\(selectedContact)", isExpanded: $isExpanded) {
                             
-                            HStack {
+                            ScrollView {
                                 
-                                Image("gmail_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                
-                                Text("\(source6)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }
-                            HStack {
-                                
-                                Image("medium_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                Text("\(source5)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }
-                            HStack {
-                                
-                                Image("github_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                
-                                Text("\(source1)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }
-                            HStack {
-                                
-                                Image("facebook_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                
-                                Text("\(source4)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }
-                            HStack {
-                                
-                                Image("Instagram_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                
-                                Text("\(source3)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }
-                            HStack {
-                                
-                                Image("linkedin_icon").resizable().frame(width: 15, height: 15).padding(1).background(Color(.white))
-                                
-                                Text("\(source2)")
-                                    .foregroundColor(Color("\(fontColor)"))
-                                    .padding(1)
-                                
-                            }.padding(.bottom, 30)
-                        }.frame(width: 200, height: 200, alignment: .center )
-                    }
-                }.background(Color("\(boxColor)")).opacity(0.9).cornerRadius(10.0).shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5).frame(width: 300, height:0, alignment: .center)
-                Spacer()
-                Spacer()
+                                VStack {
+                                    
+                                    ForEach(contactType, id: \.self) { type in
+                                        Text("\(type)")
+                                            .frame(maxWidth: .infinity)
+                                            .font(.title3)
+                                            .padding(.all)
+                                            .onTapGesture {
+                                                self.selectedContact = type
+                                                withAnimation {
+                                                    self.isExpanded.toggle()
+                                                }
+                                            }
+                                    }
+                                }
+                            }.frame(height: 200)
+                            
+                        }.frame(width: 290).accentColor(Color("Shadow"))
+                            .font(.title3)
+                            .foregroundColor(Color("light"))
+                            .padding()
+                            .background(Color.gray)
+                            .cornerRadius(10)
+                            .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
+                    
+                    }.padding(.all)
+                    
+                    .frame(width: 300, height: 250, alignment: .center).accentColor(.blue)
                 
-            }
+                }
+        }.onAppear{ handleFontColor()}
+    }
+    
+    
+    func handleFontColor(){
+        if ( fontColor == "dark"  && background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])) {
+            fontColor = "dark"
+        } else if (background.lightmode == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) ) {
+            fontColor = "light"
         }
     }
     
-    func handleFontColor(){
-        if (boxColor == "light" && fontColor == "dark"  && background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])) {
-            fontColor = "dark"
-            boxColor = "light"
-        } else if (background.lightmode == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) ) {
-            fontColor = "light"
-            boxColor = "dark"
-        }
+ func addNewContact() {
+    let EnteredType = newSource.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+
+    guard EnteredType.count > 0 else {
+        return
     }
-   
+
+    contactType.insert(EnteredType, at: 0)
+    newSource = ""
+    }
 }
 
 struct ProfileView_Previews: PreviewProvider {

@@ -12,18 +12,19 @@ import SwiftUI
 struct ContactsView: View {
     
     @State private var newContact = ""
-    @State private var rootword = ""
-    @State private var contactsList = ["@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
     @State private var fontColor: String = "dark"
     @State private var listColor: String = "dark"
     @State private var contactsColor: String = "dark"
-    
+    @State private var isExpanded = false
+    @State private var selectedContact = "Contact List"
     
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var background: Background
-
-
+    
+    @State private var contacts: [String] = ["@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    
     var body: some View {
+    
         NavigationView {
             
             ZStack {
@@ -44,39 +45,51 @@ struct ContactsView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
                             .keyboardType(.default)
-                        
                     }
                     VStack {
                         
-                        List(contactsList, id: \.self){
-                            Image(systemName: "person.circle")
-                            Text($0)
-                            Spacer()
-                            Button(action: {
-                                handleContactClick()
-                            }, label: {
-                                Image(systemName: "checkmark.circle.fill")
-                            })
-                            .cornerRadius(10.0).background(Color("\(contactsColor)")).cornerRadius(10.0).opacity(0.4)
+                        VStack {
+                            
+                            VStack(alignment: .leading, spacing: 15) {
+                               
+                                DisclosureGroup("\(selectedContact)", isExpanded:
+                                                    $isExpanded) {
+                                    ScrollView {
+                                        VStack {
+                                            
+                                            ForEach(contacts, id: \.self) { contact in
+                                                Text("\(contact)")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.title3)
+                                                    .padding(.all)
+                                                    .onTapGesture {
+                                                        self.selectedContact = contact
+                                                        withAnimation {
+                                                            self.isExpanded.toggle()
+                                                        }
+                                                    }
+                                            }
+                                        }
+                                    }.frame(height: 200)
+                                }.frame(width: 290).accentColor(Color("Shadow"))
+                                    .font(.title3)
+                                    .foregroundColor(Color("light"))
+                                    .padding(9)
+                                    .background(Color.gray)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
+                            
+                            }.padding(.all)
                         }
-                    }.onTapGesture {
-                        handleContactClick()
+                        Spacer()
                     }.foregroundColor(Color("\(listColor)"))
                 }
-            }.onAppear{handleFontColor() }
+            }.onAppear{ handleFontColor() }
         }
     }
-    
-    func handleContactClick () {
-        if( contactsColor == "dark" ) {
-            contactsColor = "green"
-        } else if( contactsColor == "green"){
-            contactsColor = "dark"
-        }
-    }
-    
+
     func handleFontColor(){
-        if (background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])) {
+        if (background.lightmode == Gradient(colors: [.white, Color("Background"), Color("DarkBackground")])){
             fontColor = "dark"
         } else if (background.lightmode == Gradient(colors: [.black, Color("DarkBackground"), Color(".black")]) ) {
             fontColor = "light"
@@ -84,32 +97,19 @@ struct ContactsView: View {
     }
     
     func addNewContact() {
-        let contact = newContact.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        guard contact.count > 0 else {
+        let Enteredcontact = newContact.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard Enteredcontact.count > 0 else {
             return
         }
-        
-        contactsList.insert(contact, at: 0)
+
+        contacts.insert(Enteredcontact, at: 0)
         newContact = ""
     }
-}
-
-struct GoHomeButton2 : View {
-    var body: some View {
-        Text("Back")
-            .foregroundColor(.white)
-            .frame(width: 150, height: 50)
-            .background(Color("PrimaryColor"))
-            .cornerRadius(15)
-            .font(.headline)
-            .padding(.top, 10)
-            .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-    }
-}
 
 struct ContactsView_Previews: PreviewProvider {
     static var previews: some View {
         ContactsView().environmentObject(Background())
     }
+}
 }

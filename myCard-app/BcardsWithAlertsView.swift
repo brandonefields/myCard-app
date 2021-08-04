@@ -10,8 +10,6 @@ import SwiftUI
 
 struct BcardsWithAlertsView: View {
     
-   
-    
     @State private var showingAlert = false
     @State private var showingAlert1 = false
     @State private var showingAlert2 = false
@@ -41,7 +39,7 @@ struct BcardsWithAlertsView: View {
     
     //BELOW IS FOR THE DROP DOWN MENU OR DISCLOSUREGROUP
     
-    @State private var contactsList = ["@Alex","@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    @State private var contactsList = ["@Ahmed","@Alex","@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
     
     @State private var isExpanded = false
     @State private var selectedContact = "Selct a Contact"
@@ -61,8 +59,6 @@ struct BcardsWithAlertsView: View {
     
     var firstName: String = "Brandon"
     var lastName: String = "Fields"
-    
-    
     
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
@@ -100,7 +96,6 @@ struct BcardsWithAlertsView: View {
                         
 // BELOW IS CASUAL B CARD ==================================================================================++++++=====================================
 
-                        
                         VStack {
                             
                             Button(action: {
@@ -116,15 +111,7 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor1, radius: 10, x: 0, y: 5)
-//                                        .alert(isPresented: $showingAlert1) {
-//                                            Alert(title: Text(casualCardTitle), message:
-//                                              Text(" \(source3), \(source4)"),
-//                                                   dismissButton:
-//                                                    .default(Text("Close")) {
-//                                                    })}
-                                
-                                    
-                                    
+                                                          
                                     ZStack {
                                         
                                         Rectangle()
@@ -189,15 +176,7 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor2, radius: 10, x: 0, y: 5)
-//                                        .alert(isPresented: $showingAlert2) {
-//                                            Alert(title: Text(bizCajCardTitle), message:
-//                                              Text(" \(source3), \(source5), \(source6)"),
-//                                                   dismissButton:
-//                                                    .default(Text("Close")) {
-//                                                    })}
-                                
-                                    
-                                    
+
                                     ZStack {
                                         
                                         Rectangle()
@@ -268,13 +247,7 @@ struct BcardsWithAlertsView: View {
                                         .frame(width: 250, height: 150)
                                         .clipped()
                                         .shadow(color: backgroundColor3, radius: 10, x: 0, y: 5)
-//                                        .alert(isPresented: $showingAlert3) {
-//                                            Alert(title: Text(professionalCardTitle), message:
-//                                                    Text(" \(source2), \(source1), \(source6)").font(.title),
-//                                                   dismissButton:
-//                                                    .default(Text("Close")) {
-//                                                    })}
-                                    
+
                                     ZStack {
                                         
                                         Rectangle()
@@ -335,6 +308,7 @@ struct BcardsWithAlertsView: View {
                             DisclosureGroup("\(selectedContact)", isExpanded:
                                                 $isExpanded) {
                                 ScrollView {
+                                    
                                     VStack {
                                         
                                         ForEach(contactsList, id: \.self) { contact in
@@ -357,33 +331,13 @@ struct BcardsWithAlertsView: View {
                                 .padding(9)
                                 .background(Color.gray)
                                 .cornerRadius(8)
-                                
-                            .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
-                        
+                                .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
                         }.padding(.all)
                             
 // BELOW IS TWO BUTTONS ARE LOCATED ----------------------------------------------------------------------------------
                         
                         HStack {
-                            VStack {
-                                
-//                                Text("Select Card")
-//                                    .foregroundColor(.white)
-//                                    .frame(width: 130, height: 50)
-//                                    .background(Color("PrimaryColor"))   .cornerRadius(15)
-//                                    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-//                                    .font(.headline)
-//                                    .onTapGesture {
-//                                        self.showingActionSheet = true
-//                                        }.actionSheet(isPresented: $showingActionSheet){
-//                                            ActionSheet(title: Text("Select Card"), message:
-//                                                        Text("Select a Card"), buttons: [
-//                                                            .default(Text("Casual")) { casualCardHightlight() },
-//                                                            .default(Text ("Biz-Caj")) { bizCajHightlight() },
-//                                                            .default(Text("Professional")) { professionalCardHightlight() },
-//                                                            .cancel()
-//                                                        ])}
-                            }
+                            
                             VStack {
               
                                  Button("Share Card") {
@@ -401,10 +355,8 @@ struct BcardsWithAlertsView: View {
                                     return Alert(title: Text("\(selectedCard)!"),
                                            message: Text("\(sharedCardWith)"),
                                            dismissButton: .default(Text("Close")))
-                                   
                                  }
                             }
-                            
                         }
                         Spacer()
                         Spacer()

@@ -35,18 +35,34 @@ struct BcardsWithAlertsView: View {
     @State private var bizCajCardTitle = "Biz-Caj Card"
     @State private var professionalCardTitle = "Professional Card"
     
+    @State private var tempUsername: String = ""
+    
     @State private var correctCard = Int()
     
+    //BELOW IS FOR THE DROP DOWN MENU OR DISCLOSUREGROUP
+    
+    @State private var contactsList = ["@Alex","@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    
+    @State private var isExpanded = false
+    @State private var selectedContact = "Selct a Contact"
+    
+    @State private var fontColor: String = "dark"
+    
+    //BELOW ARE FOR MY INPUT FIELD
     @State var output: String = ""
     @State var input: String = ""
     @State var typing = false
     
     @State var inputTextString: String = ""
     
+    
+    
     var title: String = "Full Stack Developer"
     
     var firstName: String = "Brandon"
     var lastName: String = "Fields"
+    
+    
     
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
@@ -301,15 +317,49 @@ struct BcardsWithAlertsView: View {
                                 }.padding(.top,20) .padding(.bottom, 15)
                             }
                     }
+                    
+// THIS IS WHERE THE DROPDOWN-DISCLOSUREGROUP LIVES
+                    
                     VStack {
                         
-                        TextField("\(inputTextString)", text: $username,
-                                  onEditingChanged: { self.typing = $0}, onCommit: {
-                                    self.output = self.input
-                                  })
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .frame(width: 320, height: 40, alignment: .center)
-                                .padding(10)
+                        VStack(alignment: .leading, spacing: 15) {
+                           
+                            DisclosureGroup("\(selectedContact)", isExpanded:
+                                                $isExpanded) {
+                                ScrollView {
+                                    VStack {
+                                        
+                                        ForEach(contactsList, id: \.self) { contact in
+                                            Text("\(contact)")
+                                                .frame(maxWidth: .infinity)
+                                                .font(.title3)
+                                                .padding(.all)
+                                                .onTapGesture {
+                                                    self.selectedContact = contact
+                                                    withAnimation {
+                                                        self.isExpanded.toggle()
+                                                    }
+                                                }
+                                        }
+                                    }
+                                }.frame(height: 150)
+                            }.accentColor(Color("Shadow"))
+                                .font(.title3)
+                                .foregroundColor(Color("light"))
+                                .padding(.all)
+                                .background(Color.gray)
+                                .cornerRadius(8)
+                            .shadow(color: Color("Shadow"), radius: 3, x: 0, y: 5).opacity(0.9)
+                        
+                        }.padding(.all)
+                            
+//                        TextField("\(inputTextString)", text: $username,
+//                                  onEditingChanged: { self.typing = $0}, onCommit: {
+//                                    self.output = self.input
+//                                  })
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                                .frame(width: 320, height: 40, alignment: .center)
+//                                .padding(10)
                         
                         HStack {
                             VStack {
@@ -319,7 +369,6 @@ struct BcardsWithAlertsView: View {
                                     .frame(width: 130, height: 50)
                                     .background(Color("PrimaryColor"))   .cornerRadius(15)
                                     .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-                                    .padding(.top,10)
                                     .font(.headline)
                                     .onTapGesture {
                                         self.showingActionSheet = true
@@ -336,7 +385,8 @@ struct BcardsWithAlertsView: View {
               
                                  Button("Share Card") {
                                      showingAlert = true
-                                     
+                                    tempUsername = username
+                                    username = ""
                                  }
                                  .foregroundColor(.white)
                                  .frame(width: 130, height: 50)
@@ -344,34 +394,30 @@ struct BcardsWithAlertsView: View {
                                  .cornerRadius(15)
                                  .font(.headline)
                                  .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
-                                 .padding(.top,10)
                                  .alert(isPresented: $showingAlert){
                                     return Alert(title: Text("\(selectedCard)!"),
                                            message: Text("\(sharedCardWith)"),
                                            dismissButton: .default(Text("Close")))
                                    
                                  }
-                                
                             }
+                            
                         }
+                        Spacer()
+                        Spacer()
                     }
                 }
             }
         }
     }
     
-    func handleClearingInputField() {
-        if ( inputTextString != ""){
-            inputTextString = ""
-        }
-    }
-    
+//THESE THREE FUNCTIONS BELOW ARE FOR THE ACTIONSHEET
     func casualCardHightlight(){
-        if backgroundColor1 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
+        if backgroundColor1 == Color("Shadow") {
             backgroundColor1 = Color.red
             selectedCard = "You Shared a Casual Card"
-            sharedCardWith = "\(username)"
-        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(username)" {
+            sharedCardWith = "\(tempUsername)"
+        } else if backgroundColor1 == Color.red && selectedCard == "You Shared a Casual Card" && sharedCardWith == "\(tempUsername)" {
             backgroundColor1 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
@@ -380,11 +426,11 @@ struct BcardsWithAlertsView: View {
         
     
     func bizCajHightlight(){
-        if backgroundColor2 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
+        if backgroundColor2 == Color("Shadow"){
             backgroundColor2 = Color.red
             selectedCard = "You Shared a Biz-Caj Card"
-            sharedCardWith = "\(username)"
-        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && sharedCardWith == "\(username)" {
+            sharedCardWith = "\(tempUsername)"
+        } else if backgroundColor2 == Color.red && selectedCard == "You Shared a Biz-Caj Card" && sharedCardWith == "\(tempUsername)" {
             backgroundColor2 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"
@@ -392,11 +438,11 @@ struct BcardsWithAlertsView: View {
     }
     
     func professionalCardHightlight(){
-        if backgroundColor3 == Color("Shadow") && selectedCard == "No Card Selected!" && sharedCardWith == "No User Selected!" {
+        if backgroundColor3 == Color("Shadow") {
             backgroundColor3 = Color.red
             selectedCard = "You Shared a Professional Card"
-            sharedCardWith = "\(username)"
-        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && sharedCardWith == "\(username)" {
+            sharedCardWith = "\(tempUsername)"
+        } else if backgroundColor3 == Color.red && selectedCard == "You Shared a Professional Card" && sharedCardWith == "\(tempUsername)" {
             backgroundColor3 = Color("Shadow")
             selectedCard = "No Card Selected!"
             sharedCardWith = "No User Selected!"

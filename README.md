@@ -12,7 +12,7 @@ An app for keeping those connections.
 
 <iframe src="https://www.loom.com/embed/0e1e49ba4c844794945c78de908d56b5" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
- <img src='https://giphy.com/gifs/FdXbv2hNCHrJJ5nKMK' height='450'>
+ <img src='https://media.giphy.com/media/FdXbv2hNCHrJJ5nKMK/giphy.mp4' height='450'>
 
 - Easily share specified contact information on the go. 
 - Make connections how you want and with who you want. 

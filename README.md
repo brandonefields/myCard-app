@@ -27,9 +27,9 @@ https://www.loom.com/share/0e1e49ba4c844794945c78de908d56b5
 
 ## Feature Wishlist
 
--
--
--
+- AirDrop content to other users
+- Tailor and customize personal contact cards
+- Launch on Apple Store
 
 ## Reach out
 

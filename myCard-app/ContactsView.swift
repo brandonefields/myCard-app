@@ -21,7 +21,7 @@ struct ContactsView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var background: Background
     
-    @State private var contacts: [String] = ["@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    @State private var contacts: [String] = ["@greg","@tony","@mandy","@danny","@michael","@jay","@keith","@chris"]
     
     var body: some View {
     

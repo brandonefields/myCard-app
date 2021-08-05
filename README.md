@@ -4,7 +4,7 @@ An app for keeping those connections.
 
 ## Summary
 
- <img src='https://media.giphy.com/media/0di4uF3soX2BxALDcN/giphy.gif' height='450'>
+ <img src='https://www.loom.com/share/0e1e49ba4c844794945c78de908d56b5' height='450'>
 
 ## Features
 

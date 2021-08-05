@@ -18,7 +18,7 @@ struct BcardView: View {
         ZStack {
             
             VStack {
-                
+            
                 Text("\(firstName) \(lastName)")
                     .padding(1)
                     .font(.title)

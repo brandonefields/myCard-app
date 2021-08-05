@@ -39,7 +39,7 @@ struct BcardsWithAlertsView: View {
     
     //BELOW IS FOR THE DROP DOWN MENU OR DISCLOSUREGROUP
     
-    @State private var contactsList = ["@Ahmed","@Alex","@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
+    @State private var contactsList = ["@ahmed","@Alex","@Greg","@Tony","@Mandy","@Danny","@Michael","@Jay","@Keith","@Chris"]
     
     @State private var isExpanded = false
     @State private var selectedContact = "Selct a Contact"

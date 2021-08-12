@@ -14,27 +14,19 @@ struct BcardsWithAlertsView: View {
     @State private var showingAlert1 = false
     @State private var showingAlert2 = false
     @State private var showingAlert3 = false
-    
     @State private var showingActionSheet = false
-    
     @State private var backgroundColor = Color("Shadow")
     @State private var backgroundColor1 = Color("Shadow")
     @State private var backgroundColor2 = Color("Shadow")
     @State private var backgroundColor3 = Color("Shadow")
-    
-    
     @State private var username = ""
     @State private var selectedCard = "No Card Selected!"
     @State private var sharedCardWith = "No User Selected!"
-    
     @State private var showingBcard = false
-    
     @State private var casualCardTitle = "Casual Card"
     @State private var bizCajCardTitle = "Biz-Caj Card"
     @State private var professionalCardTitle = "Professional Card"
-    
     @State private var tempUsername: String = ""
-    
     @State private var correctCard = Int()
     
     //BELOW IS FOR THE DROP DOWN MENU OR DISCLOSUREGROUP
@@ -43,23 +35,17 @@ struct BcardsWithAlertsView: View {
     
     @State private var isExpanded = false
     @State private var selectedContact = "Selct a Contact"
-    
     @State private var fontColor: String = "dark"
     
     //BELOW ARE FOR MY INPUT FIELD
     @State var output: String = ""
     @State var input: String = ""
     @State var typing = false
-    
     @State var inputTextString: String = ""
-    
-    
-    
+        
     var title: String = "Full Stack Developer"
-    
     var firstName: String = "Brandon"
     var lastName: String = "Fields"
-    
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
     var source3: String = "Instagram"
@@ -75,8 +61,6 @@ struct BcardsWithAlertsView: View {
         
         ZStack {
             
-            
-            
             RadialGradient(gradient: background.lightmode,
                            center: UnitPoint.center,
                            startRadius: 0,
@@ -84,7 +68,6 @@ struct BcardsWithAlertsView: View {
                 .ignoresSafeArea(.all)
                 .opacity(0.8)
                                                     
-            
             VStack {
                 
                 ZStack {

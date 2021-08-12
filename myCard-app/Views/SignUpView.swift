@@ -46,8 +46,7 @@ struct SignUpView: View {
                         .padding(20)
                         .opacity(0.4)
                     
-                  
-                    
+                                      
                     TextField("Username", text: $username)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal, 27.0)

@@ -126,26 +126,14 @@
 		E68FD84726AE4D3F00529EFB /* myCard-app */ = {
 			isa = PBXGroup;
 			children = (
-				E600540426B99D49008719F0 /* Roboto */,
-				E68FD85726AE4FAA00529EFB /* MotherVIew.swift */,
-				E68FD85B26AE501900529EFB /* OpenView.swift */,
-				E68FD85926AE4FEB00529EFB /* HomeView.swift */,
-				E68FD84826AE4D3F00529EFB /* myCard_appApp.swift */,
-				E68FD85D26AE504F00529EFB /* ViewRouter.swift */,
-				E68FD85F26AE509400529EFB /* PreLaunchView.swift */,
-				E68FD86526B078DC00529EFB /* NewHomeView.swift */,
-				E68FD86726B07CE400529EFB /* CardsView.swift */,
-				E68FD86926B0937C00529EFB /* ProfileView.swift */,
-				E68FD86326B0650E00529EFB /* SignUpView.swift */,
-				E650C6E326B1B14C009B92E7 /* BcardsView.swift */,
-				E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */,
-				E650C6E526B1CABE009B92E7 /* BcardsWithAlertsView.swift */,
-				E690E2EE26B236F6002EB12C /* ContactsView.swift */,
-				E68FD84C26AE4D4000529EFB /* Assets.xcassets */,
 				E68FD85126AE4D4000529EFB /* Info.plist */,
-				E68FD86126AE50CD00529EFB /* Helper.swift */,
+				E68FD84826AE4D3F00529EFB /* myCard_appApp.swift */,
+				E600540426B99D49008719F0 /* Roboto */,
+				E6E4F9C526C5A342005824C0 /* Views */,
+				E6E4F9C726C5ADD8005824C0 /* Router */,
+				E6E4F9C926C5AE02005824C0 /* introAnimation */,
+				E6E4F9CA26C5AE32005824C0 /* Helpers */,
 				E68FD84E26AE4D4000529EFB /* Preview Content */,
-				E600540226B8405C008719F0 /* Bcard.swift */,
 			);
 			path = "myCard-app";
 			sourceTree = "<group>";
@@ -156,6 +144,58 @@
 				E68FD84F26AE4D4000529EFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E6E4F9C526C5A342005824C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E68FD85726AE4FAA00529EFB /* MotherVIew.swift */,
+				E68FD86326B0650E00529EFB /* SignUpView.swift */,
+				E650C6E526B1CABE009B92E7 /* BcardsWithAlertsView.swift */,
+				E68FD86B26B09A1700529EFB /* InsideAppHomeView.swift */,
+				E690E2EE26B236F6002EB12C /* ContactsView.swift */,
+				E68FD86926B0937C00529EFB /* ProfileView.swift */,
+				E68FD85B26AE501900529EFB /* OpenView.swift */,
+				E6E4F9C626C5AD9B005824C0 /* UnusedViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E6E4F9C626C5AD9B005824C0 /* UnusedViews */ = {
+			isa = PBXGroup;
+			children = (
+				E600540226B8405C008719F0 /* Bcard.swift */,
+				E68FD86726B07CE400529EFB /* CardsView.swift */,
+				E650C6E326B1B14C009B92E7 /* BcardsView.swift */,
+				E68FD85926AE4FEB00529EFB /* HomeView.swift */,
+			);
+			path = UnusedViews;
+			sourceTree = "<group>";
+		};
+		E6E4F9C726C5ADD8005824C0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E68FD85D26AE504F00529EFB /* ViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E6E4F9C926C5AE02005824C0 /* introAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				E68FD85F26AE509400529EFB /* PreLaunchView.swift */,
+			);
+			path = introAnimation;
+			sourceTree = "<group>";
+		};
+		E6E4F9CA26C5AE32005824C0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E68FD84C26AE4D4000529EFB /* Assets.xcassets */,
+				E68FD86126AE50CD00529EFB /* Helper.swift */,
+				E68FD86526B078DC00529EFB /* NewHomeView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

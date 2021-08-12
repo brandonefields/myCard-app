@@ -12,8 +12,10 @@ struct ProfileView: View {
     @State private var contactType = ["@GitHub","@Linked_In","@Instagram","@FaceBook","@Medium","@Gmail"]
     
     @State private var isExpanded = false
-    
     @State private var selectedContact = "Sources"
+    @State private var fontColor: String = "dark"
+    @State private var boxColor: String = "light"
+    @State private var newSource = ""
     
     var source1: String = "GitHub"
     var source2: String = "Linked_In"
@@ -22,18 +24,9 @@ struct ProfileView: View {
     var source5: String = "Medium"
     var source6: String = "Gmail"
     
-        
-    
     @EnvironmentObject var background: Background
     
-    @State private var fontColor: String = "dark"
-    
-    @State private var boxColor: String = "light"
-    
-    @State private var newSource = ""
-      
     var body: some View {
-        
         
         ZStack {
             
@@ -41,7 +34,6 @@ struct ProfileView: View {
                            center: UnitPoint.center,
                            startRadius: 0,
                            endRadius: 500).ignoresSafeArea(.all)
-           
 
             VStack {
             
@@ -72,8 +64,6 @@ struct ProfileView: View {
                     .padding(1)
                     .keyboardType(.default)
                     .frame(width: 300, height: 100, alignment: .center  )
-                
-                
                 
                     
                     VStack(alignment: .leading, spacing: 15) {

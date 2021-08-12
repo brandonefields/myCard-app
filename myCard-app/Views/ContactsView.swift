@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct ContactsView: View {
     
     @State private var newContact = ""

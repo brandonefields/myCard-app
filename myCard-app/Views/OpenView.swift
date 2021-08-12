@@ -14,14 +14,12 @@ struct User: Identifiable {
 
 struct OpenView: View {
     
-    @EnvironmentObject var viewRouter: ViewRouter
-    
     @State private var password: String = ""
     @State private var username: String = ""
-    
     @State private var selectedUser: User?
-    
     @State private var showingAlert: Bool = false
+    
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         VStack {
@@ -97,7 +95,6 @@ struct SignInButton : View {
             .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 5)
     }
 }
-
 
 
 struct OpenView_Previews: PreviewProvider {

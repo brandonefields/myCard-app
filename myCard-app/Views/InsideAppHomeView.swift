@@ -28,9 +28,6 @@ struct InsideAppHomeView: View {
                            endRadius: 500)
                 .ignoresSafeArea(.all)
 
-                                                    
-            
-           
             VStack {
         
                 Image("\(profileImage)")
@@ -44,6 +41,7 @@ struct InsideAppHomeView: View {
                 Spacer()
             }
             VStack {
+                
                 Spacer()
                 Spacer()
                

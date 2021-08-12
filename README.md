@@ -4,11 +4,9 @@ An app for keeping those connections.
 
 ## Summary
 
- <img src='https://media.giphy.com/media/0di4uF3soX2BxALDcN/giphy.gif' height='450'>
+https://www.loom.com/share/0e1e49ba4c844794945c78de908d56b5
 
 ## Features
-
- <img src='https://media.giphy.com/media/Hq8MbiiUXjlG1ZXvQb/giphy.gif' height='450'>
 
 - Easily share specified contact information on the go. 
 - Make connections how you want and with who you want. 
@@ -29,9 +27,9 @@ An app for keeping those connections.
 
 ## Feature Wishlist
 
--
--
--
+- AirDrop content to other users
+- Tailor and customize personal contact cards
+- Launch on Apple Store
 
 ## Reach out
 
